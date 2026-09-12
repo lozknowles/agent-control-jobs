@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import YAML from "yaml";
 import { ROOT, read, json, safePath } from "./library.mjs";
-export function scaffold(inputFile) {
+export function scaffold(inputFile, root = ROOT) {
   const draft = read(inputFile);
   for (const k of [
     "id",
@@ -27,9 +27,9 @@ export function scaffold(inputFile) {
     ].includes(draft.pattern)
   )
     throw Error("invalid pattern");
-  const dest = path.join(ROOT, "jobs", draft.category, draft.id);
+  const dest = safePath(root, `jobs/${draft.category}/${draft.id}`);
   if (fs.existsSync(dest)) throw Error("job already exists");
-  const m = read(path.join(ROOT, "jobs/data/csv-analysis/job.yaml"));
+  const m = read(path.join(root, "jobs/data/csv-analysis/job.yaml"));
   m.id = draft.id;
   m.name = draft.objective.replace(/\.$/, "");
   m.description = draft.objective;
@@ -93,7 +93,7 @@ export function scaffold(inputFile) {
     "# Live configuration\n\nDeclare the actual data source, connectors, credentials and target requirements here before live use. This starter is not a qualified live integration.\n",
   );
   return {
-    created: path.relative(ROOT, dest),
+    created: path.relative(root, dest),
     next: "Review permissions and requirements; add job to relevant suites and AC-QUAL-FULL; regenerate catalogue and run checks",
   };
 }

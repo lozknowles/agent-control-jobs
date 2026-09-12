@@ -20,7 +20,7 @@ import {
   schema,
 } from "../tools/library.mjs";
 test("all manifests, schemas, references and provenance validate", () =>
-  assert.equal(validate().jobs, 50));
+  assert.equal(validate().jobs, jobs().length));
 for (const j of jobs()) {
   test(`${j.manifest.id}: expected fixture accepted; incorrect fact, outcome and unauthorised action rejected`, () => {
     const good = read(path.join(j.dir, "expected/result.json"));
@@ -168,7 +168,7 @@ test("catalogue generation is deterministic and binds payload checksums", () => 
     b = generated();
   assert.deepEqual(a, b);
   const cat = JSON.parse(a["catalogue/index.json"]);
-  assert.equal(cat.jobs.length, 50);
+  assert.equal(cat.jobs.length, jobs().length);
   assert.match(cat.jobs[0].sha256, /^[a-f0-9]{64}$/);
   assert.ok(cat.jobs[0].payload["prompt.md"]);
 });
