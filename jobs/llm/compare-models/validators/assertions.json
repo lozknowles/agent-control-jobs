@@ -1,0 +1,12 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "quality_winner": "B",
+    "latency_winner": "A",
+    "cost": null
+  },
+  "allowed_actions": [],
+  "required_evidence": [
+    "fixture:input.json"
+  ]
+}

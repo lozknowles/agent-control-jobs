@@ -1,0 +1,3 @@
+{
+  "scenario": "Frontend returns 502; upstream log connection refused on port 8080; upstream stopped."
+}

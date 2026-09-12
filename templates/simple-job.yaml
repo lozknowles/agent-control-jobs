@@ -1,0 +1,12 @@
+id: check-order-total
+objective: Check that these order totals agree.
+category: data
+pattern: Worker Augmentation
+source: Your name or a public source URL
+capabilities: [evidence.report]
+permission: read-only
+scenario: Order A has line values 12 and 8, but its stated total is 25.
+expected_outcome: COMPLETE
+expected_facts:
+  calculated_total: 20
+  difference: 5

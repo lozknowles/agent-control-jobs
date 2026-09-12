@@ -1,0 +1,41 @@
+{
+  "id": "discover-runtimes",
+  "objective": "Discover Runtimes",
+  "input": {
+    "scenario": "Inventory reports Ollama installed but stopped; llama.cpp serving a healthy endpoint. Installation is not readiness."
+  },
+  "assertions": {
+    "outcome": "COMPLETE",
+    "facts": {
+      "ready": [
+        "llama.cpp"
+      ],
+      "stopped": [
+        "ollama"
+      ]
+    },
+    "allowed_actions": [],
+    "required_evidence": [
+      "fixture:input.json"
+    ]
+  },
+  "requirements": {
+    "capabilities": [
+      "evidence.report",
+      "runtime.inspect"
+    ],
+    "connectors": [],
+    "credentials": [],
+    "permissions": [
+      {
+        "kind": "read-only",
+        "scope": "bound-inputs"
+      },
+      {
+        "kind": "local-mutation",
+        "scope": "run-output"
+      }
+    ]
+  },
+  "scope": "Independent scenario; requirements must be merged before assessment; no implicit authority"
+}

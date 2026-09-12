@@ -1,0 +1,12 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "free_mib": 1024,
+    "admit": false,
+    "main_contributor": "renderer-worker"
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

@@ -1,0 +1,844 @@
+[
+  {
+    "use_case": "maintenance",
+    "normalised_workload": "Plan maintenance from sensor and outage records",
+    "canonical_jobs": [
+      "maintenance-plan"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "clinical",
+    "normalised_workload": "Rank trial sites against eligibility evidence",
+    "canonical_jobs": [],
+    "representation": "UNREPRESENTED",
+    "capabilities": [
+      "specialist.integration"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [],
+    "implementation_status": "UNSUPPORTED",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "code-research",
+    "normalised_workload": "Inspect repository health and explain failing behaviour",
+    "canonical_jobs": [
+      "repository-health-audit",
+      "investigate-regression",
+      "review-pull-request"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-CODING",
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "bugfix",
+    "normalised_workload": "Reproduce a defect, patch it, and execute regression tests",
+    "canonical_jobs": [
+      "fix-failing-test"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report",
+      "code.execute"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-CODING",
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "feature",
+    "normalised_workload": "Implement a bounded feature with acceptance tests",
+    "canonical_jobs": [
+      "small-feature",
+      "production-deployment",
+      "staging-deployment"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report",
+      "code.execute"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-CODING",
+      "AC-QUAL-FULL",
+      "AC-QUAL-OPERATIONS",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "docs",
+    "normalised_workload": "Compare documented behaviour with code",
+    "canonical_jobs": [
+      "documentation-consistency"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-CODING",
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "debt",
+    "normalised_workload": "Plan and verify dependency maintenance",
+    "canonical_jobs": [
+      "dependency-upgrade"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report",
+      "code.execute"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-CODING",
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "service",
+    "normalised_workload": "Triage requests and route exceptions to service owners",
+    "canonical_jobs": [
+      "customer-support-triage",
+      "diagnose-unavailable-service",
+      "restart-failed-service",
+      "connector-interruption"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-LONG-RUNNING",
+      "AC-QUAL-OPERATIONS",
+      "AC-QUAL-REAL-WORLD",
+      "AC-QUAL-RECOVERY"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "leave",
+    "normalised_workload": "Validate a leave request against policy and availability",
+    "canonical_jobs": [
+      "schedule-proposal"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "assets",
+    "normalised_workload": "Reconcile asset demand and inventory before approval",
+    "canonical_jobs": [
+      "invoice-reconciliation"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "support",
+    "normalised_workload": "Classify a customer issue using policy and case history",
+    "canonical_jobs": [
+      "customer-support-triage"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "response",
+    "normalised_workload": "Draft a grounded support response and escalate uncertainty",
+    "canonical_jobs": [
+      "draft-response"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "contact-summary",
+    "normalised_workload": "Summarise decisions and unanswered customer questions",
+    "canonical_jobs": [
+      "inbox-triage"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "parallel-research",
+    "normalised_workload": "Delegate distinct questions and merge attributed evidence",
+    "canonical_jobs": [
+      "fan-out-research",
+      "topic-monitor",
+      "dependency-graph",
+      "partial-worker-failure"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report",
+      "workers.parallel"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-LONG-RUNNING",
+      "AC-QUAL-PARALLEL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "long-coding",
+    "normalised_workload": "Persist progress and resume a bounded task without duplication",
+    "canonical_jobs": [
+      "checkpoint-resume",
+      "delayed-dependency",
+      "operator-pause-resume"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report",
+      "checkpoint"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-LONG-RUNNING",
+      "AC-QUAL-MULTI-MODEL",
+      "AC-QUAL-REAL-WORLD",
+      "AC-QUAL-RECOVERY"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "home",
+    "normalised_workload": "Inspect device state and gate an entity change",
+    "canonical_jobs": [
+      "home-entity-control"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report",
+      "home-assistant.control"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD",
+      "AC-QUAL-REMOTE"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "inventory",
+    "normalised_workload": "Enumerate available models and immutable model identifiers",
+    "canonical_jobs": [
+      "discover-models"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report",
+      "http.read"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-ESTATE",
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "probes",
+    "normalised_workload": "Test grounded answers and prompt-injection resistance",
+    "canonical_jobs": [
+      "hallucination-resistance"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-CORE",
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "papers",
+    "normalised_workload": "Compare research sources and retain evidence references",
+    "canonical_jobs": [
+      "source-comparison",
+      "contradictory-evidence",
+      "technical-research"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-GOVERNANCE",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "contracts",
+    "normalised_workload": "Extract clauses with document locations",
+    "canonical_jobs": [
+      "structured-extraction",
+      "document-comparison"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-CORE",
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "mail",
+    "normalised_workload": "Recover decisions and outstanding actions from messages",
+    "canonical_jobs": [
+      "inbox-triage",
+      "meeting-preparation"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "tariffs",
+    "normalised_workload": "Match extracted amounts to filings and flag mismatches",
+    "canonical_jobs": [
+      "invoice-reconciliation"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "sales",
+    "normalised_workload": "Validate CRM record identity and surface exceptions",
+    "canonical_jobs": [
+      "crm-record-analysis"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "reports",
+    "normalised_workload": "Analyse campaign measures and draft a sourced report",
+    "canonical_jobs": [
+      "csv-analysis"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-CORE",
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "knowledge",
+    "normalised_workload": "Answer questions from current controlled documents",
+    "canonical_jobs": [
+      "document-collection-summary"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONFIGURATION",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "safety",
+    "normalised_workload": "Detect physical hazards from live video",
+    "canonical_jobs": [],
+    "representation": "UNREPRESENTED",
+    "capabilities": [
+      "specialist.integration"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [],
+    "implementation_status": "UNSUPPORTED",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "media",
+    "normalised_workload": "Generate and evaluate marketing video variations",
+    "canonical_jobs": [],
+    "representation": "UNREPRESENTED",
+    "capabilities": [
+      "specialist.integration"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [],
+    "implementation_status": "UNSUPPORTED",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "security-response",
+    "normalised_workload": "Isolate compromised infrastructure with verified authority",
+    "canonical_jobs": [],
+    "representation": "UNREPRESENTED",
+    "capabilities": [
+      "specialist.integration"
+    ],
+    "governance_challenge": "Explicit target-scoped grant; consequential actions require action approval",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [],
+    "implementation_status": "UNSUPPORTED",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "dataiku-tickets",
+    "normalised_workload": "Retrieve similar resolved tickets, draft answers for approval, route difficult cases",
+    "canonical_jobs": [
+      "customer-support-triage",
+      "draft-response"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report",
+      "specialist.integration"
+    ],
+    "governance_challenge": "Human approval before sending, changing records or acting on recommendations",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONNECTOR",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "dataiku-invoices",
+    "normalised_workload": "Prioritise unpaid invoices using terms, relationships and payment history; prepare CRM updates",
+    "canonical_jobs": [
+      "invoice-reconciliation"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report",
+      "specialist.integration"
+    ],
+    "governance_challenge": "Human approval before sending, changing records or acting on recommendations",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONNECTOR",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "dataiku-sales",
+    "normalised_workload": "Optimise store pricing, inventory and promotions using demand and customer segments",
+    "canonical_jobs": [],
+    "representation": "UNREPRESENTED",
+    "capabilities": [
+      "evidence.report",
+      "specialist.integration"
+    ],
+    "governance_challenge": "Human approval before sending, changing records or acting on recommendations",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [],
+    "implementation_status": "UNSUPPORTED",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "dataiku-compliance",
+    "normalised_workload": "Monitor jurisdictions, compare policies, prioritise gaps and draft an implementation roadmap",
+    "canonical_jobs": [
+      "topic-monitor",
+      "document-comparison"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report",
+      "specialist.integration"
+    ],
+    "governance_challenge": "Human approval before sending, changing records or acting on recommendations",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL"
+    ],
+    "implementation_status": "REQUIRES_CONNECTOR",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "dataiku-supply",
+    "normalised_workload": "Map disruptions to products, compare alternatives and simulate mitigations",
+    "canonical_jobs": [
+      "supply-chain-risk"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report",
+      "specialist.integration"
+    ],
+    "governance_challenge": "Human approval before sending, changing records or acting on recommendations",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONNECTOR",
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "use_case": "dataiku-client",
+    "normalised_workload": "Reconcile CRM and market changes, prioritise outreach and prepare context for meetings",
+    "canonical_jobs": [
+      "crm-record-analysis",
+      "meeting-preparation"
+    ],
+    "representation": "COMPONENT_ONLY",
+    "capabilities": [
+      "evidence.report",
+      "specialist.integration"
+    ],
+    "governance_challenge": "Human approval before sending, changing records or acting on recommendations",
+    "evidence": [
+      "source references",
+      "fresh observations",
+      "authority audit",
+      "independent validator"
+    ],
+    "qualification_suites": [
+      "AC-QUAL-FULL",
+      "AC-QUAL-REAL-WORLD"
+    ],
+    "implementation_status": "REQUIRES_CONNECTOR",
+    "qualification": "NOT_YET_QUALIFIED"
+  }
+]

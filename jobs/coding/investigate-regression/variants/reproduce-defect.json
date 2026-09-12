@@ -1,0 +1,37 @@
+{
+  "id": "reproduce-defect",
+  "objective": "Reproduce Defect",
+  "input": {
+    "scenario": "Input zero is treated as absent by if (!amount). Reproduce with amount=0 and distinguish undefined."
+  },
+  "assertions": {
+    "outcome": "COMPLETE",
+    "facts": {
+      "trigger": 0,
+      "cause": "falsy-check"
+    },
+    "allowed_actions": [],
+    "required_evidence": [
+      "fixture:input.json"
+    ]
+  },
+  "requirements": {
+    "capabilities": [
+      "evidence.report",
+      "code.execute"
+    ],
+    "connectors": [],
+    "credentials": [],
+    "permissions": [
+      {
+        "kind": "read-only",
+        "scope": "bound-inputs"
+      },
+      {
+        "kind": "local-mutation",
+        "scope": "run-output"
+      }
+    ]
+  },
+  "scope": "Independent scenario; requirements must be merged before assessment; no implicit authority"
+}

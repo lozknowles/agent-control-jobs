@@ -1,0 +1,3 @@
+{
+  "scenario": "Ticket reports unauthorised account access and includes sensitive data. Route to security support; redact personal fields."
+}

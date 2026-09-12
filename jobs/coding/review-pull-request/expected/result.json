@@ -1,0 +1,11 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "finding": "member-privilege-escalation",
+    "severity": "high"
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

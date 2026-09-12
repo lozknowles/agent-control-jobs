@@ -1,0 +1,16 @@
+{
+  "outcome": "BLOCKED",
+  "facts": {
+    "initial": [
+      "A",
+      "B"
+    ],
+    "blocked": [
+      "C"
+    ]
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

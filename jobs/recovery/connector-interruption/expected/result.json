@@ -1,0 +1,12 @@
+{
+  "outcome": "BLOCKED",
+  "facts": {
+    "attempts": 2,
+    "pending": "K1",
+    "success": false
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

@@ -1,0 +1,14 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "models": [
+      "alpha",
+      "beta"
+    ],
+    "context": "unknown"
+  },
+  "allowed_actions": [],
+  "required_evidence": [
+    "fixture:input.json"
+  ]
+}

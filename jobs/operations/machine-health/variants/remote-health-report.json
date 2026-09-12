@@ -1,0 +1,45 @@
+{
+  "id": "remote-health-report",
+  "objective": "Remote Health Report",
+  "input": {
+    "scenario": "Authorised SSH target alias dev-worker has a fresh CPU sample 30% and disk sample 20%. No target address supplied in fixture."
+  },
+  "assertions": {
+    "outcome": "COMPLETE",
+    "facts": {
+      "cpu_percent": 30,
+      "disk_percent": 20
+    },
+    "allowed_actions": [],
+    "required_evidence": [
+      "fixture:input.json"
+    ]
+  },
+  "requirements": {
+    "capabilities": [
+      "evidence.report",
+      "ssh.read"
+    ],
+    "connectors": [
+      "ssh"
+    ],
+    "credentials": [
+      "ssh-identity"
+    ],
+    "permissions": [
+      {
+        "kind": "read-only",
+        "scope": "bound-inputs"
+      },
+      {
+        "kind": "local-mutation",
+        "scope": "run-output"
+      },
+      {
+        "kind": "credential-use",
+        "scope": "target"
+      }
+    ]
+  },
+  "scope": "Independent scenario; requirements must be merged before assessment; no implicit authority"
+}

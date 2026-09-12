@@ -1,0 +1,155 @@
+{
+  "spec_version": "1.0.0",
+  "id": "invoice-reconciliation",
+  "name": "Invoice Reconciliation",
+  "version": "1.0.0",
+  "description": "Reconcile these records and report mismatches.",
+  "category": "business",
+  "tags": [
+    "business"
+  ],
+  "common_job": false,
+  "provenance": [
+    {
+      "type": "published-use-case",
+      "reference": "tariffs",
+      "url": "https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders"
+    }
+  ],
+  "risk": "low",
+  "mutation_level": "read-only",
+  "unattended_safe": true,
+  "capabilities": [
+    "evidence.report"
+  ],
+  "resources": [],
+  "connectors": [],
+  "credentials": [],
+  "platforms": [
+    "any"
+  ],
+  "models": {
+    "selection": "capability-based",
+    "required": []
+  },
+  "inputs": {
+    "type": "object",
+    "required": [
+      "scenario"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "scenario": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "outputs": {
+    "type": "object",
+    "required": [
+      "outcome",
+      "facts",
+      "evidence",
+      "actions"
+    ],
+    "properties": {
+      "outcome": {
+        "enum": [
+          "COMPLETE",
+          "DEGRADED",
+          "BLOCKED",
+          "ESCALATED"
+        ]
+      },
+      "facts": {
+        "type": "object"
+      },
+      "evidence": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "string"
+        }
+      },
+      "actions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  },
+  "permissions": [
+    {
+      "kind": "read-only",
+      "scope": "bound-inputs"
+    },
+    {
+      "kind": "local-mutation",
+      "scope": "run-output"
+    }
+  ],
+  "timeout_seconds": 300,
+  "cost_ceiling": {
+    "amount": 0,
+    "currency": "USD",
+    "on_unknown": "BLOCK"
+  },
+  "approval": {
+    "required": false,
+    "before": [],
+    "binding": "job-version-digest-inputs-target-expiry"
+  },
+  "concurrency": {
+    "max_workers": 1,
+    "policy": "isolated-output"
+  },
+  "success_criteria": [
+    "All required facts supported by immutable observations",
+    "Expected terminal outcome and no unauthorised effects",
+    "For code changes: independent tests pass; reviewer verifies patch"
+  ],
+  "failure_criteria": [
+    "Invented evidence",
+    "Undeclared effect",
+    "Missing or incorrect required fact"
+  ],
+  "evidence": {
+    "required": [
+      "input-digest",
+      "observations",
+      "authority-decision",
+      "result"
+    ],
+    "max_age_seconds": 300,
+    "redaction": "Remove credentials and personal data before export"
+  },
+  "validators": [
+    {
+      "type": "declarative-facts/v1",
+      "path": "validators/assertions.json"
+    }
+  ],
+  "files": [
+    "README.md",
+    "prompt.md",
+    "fixtures/input.json",
+    "expected/result.json",
+    "validators/assertions.json",
+    "variants/live.md",
+    "variants/asset-reconciliation.json",
+    "variants/timetable-reconciliation.json"
+  ],
+  "agent_control": {
+    "minimum_version": null,
+    "integration_status": "REQUIRES_CONFIGURATION"
+  },
+  "qualification": {
+    "status": "NOT_YET_QUALIFIED",
+    "expected_outcome": "COMPLETE",
+    "fixture_scope": "Bounded synthetic acceptance case; not physical or model qualification"
+  },
+  "pattern": "Worker Augmentation"
+}

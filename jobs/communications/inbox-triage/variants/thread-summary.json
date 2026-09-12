@@ -1,0 +1,38 @@
+{
+  "id": "thread-summary",
+  "objective": "Thread Summary",
+  "input": {
+    "scenario": "T1 requested invoice Monday; T2 promised Tuesday; T3 asks Wednesday whether sent. No sending record exists."
+  },
+  "assertions": {
+    "outcome": "COMPLETE",
+    "facts": {
+      "unanswered": [
+        "T3"
+      ],
+      "sent": "unverified"
+    },
+    "allowed_actions": [],
+    "required_evidence": [
+      "fixture:input.json"
+    ]
+  },
+  "requirements": {
+    "capabilities": [
+      "evidence.report"
+    ],
+    "connectors": [],
+    "credentials": [],
+    "permissions": [
+      {
+        "kind": "read-only",
+        "scope": "bound-inputs"
+      },
+      {
+        "kind": "local-mutation",
+        "scope": "run-output"
+      }
+    ]
+  },
+  "scope": "Independent scenario; requirements must be merged before assessment; no implicit authority"
+}

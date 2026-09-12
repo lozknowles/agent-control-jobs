@@ -1,0 +1,3 @@
+{
+  "scenario": "Dependency v1 uses connect(url); v2 requires connect({url}). Two call sites remain positional."
+}

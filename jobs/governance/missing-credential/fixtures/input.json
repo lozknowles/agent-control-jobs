@@ -1,0 +1,3 @@
+{
+  "scenario": "Connector configured; credential reference is absent. Do not solicit or invent a secret in output."
+}

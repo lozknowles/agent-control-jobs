@@ -1,0 +1,3 @@
+{
+  "scenario": "Three HTTP attempts: 503,503,200. Maximum attempts 3. Preserve each observation."
+}

@@ -1,0 +1,12 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "difference": 20,
+    "matched": false,
+    "paid": false
+  },
+  "allowed_actions": [],
+  "required_evidence": [
+    "fixture:input.json"
+  ]
+}

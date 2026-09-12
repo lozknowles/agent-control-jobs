@@ -1,0 +1,11 @@
+{
+  "outcome": "BLOCKED",
+  "facts": {
+    "target": "light.study",
+    "executed": false
+  },
+  "allowed_actions": [],
+  "required_evidence": [
+    "fixture:input.json"
+  ]
+}

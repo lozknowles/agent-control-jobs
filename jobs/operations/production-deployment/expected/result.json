@@ -1,0 +1,15 @@
+{
+  "outcome": "BLOCKED",
+  "facts": {
+    "missing": [
+      "approval",
+      "backup",
+      "rollback"
+    ],
+    "deployed": false
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

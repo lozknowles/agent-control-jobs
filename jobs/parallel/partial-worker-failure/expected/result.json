@@ -1,0 +1,15 @@
+{
+  "outcome": "DEGRADED",
+  "facts": {
+    "retained": [
+      "RA"
+    ],
+    "missing": [
+      "B"
+    ]
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

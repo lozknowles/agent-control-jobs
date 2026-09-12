@@ -1,0 +1,15 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "cost": 10,
+    "latency": 20,
+    "sources": [
+      "S1",
+      "S2"
+    ]
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

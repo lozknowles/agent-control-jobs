@@ -1,0 +1,3 @@
+{
+  "scenario": "Supplier S1 is unavailable and supplies part P1 for product A. Supplier S2 can supply P1 in 5 days, but certification is unverified. Inventory covers 2 days. Recommend investigation, not an order."
+}

@@ -1,0 +1,896 @@
+[
+  {
+    "id": "maintenance",
+    "source": "dataiku",
+    "source_url": "https://pages.dataiku.com/the-ultimate-guide-to-ai-agent-use-cases",
+    "date_accessed": "2026-09-12",
+    "organisation": "Dataiku",
+    "original_description": "maintenance scheduling assistant",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Plan maintenance from sensor and outage records",
+    "category": "manufacturing",
+    "required_capabilities": [
+      "evidence.report"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "maintenance-plan"
+    ],
+    "qualification": "NOT_YET_QUALIFIED",
+    "source_page": 14
+  },
+  {
+    "id": "clinical",
+    "source": "dataiku",
+    "source_url": "https://pages.dataiku.com/the-ultimate-guide-to-ai-agent-use-cases",
+    "date_accessed": "2026-09-12",
+    "organisation": "Dataiku",
+    "original_description": "trial-site intelligence",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Rank trial sites against eligibility evidence",
+    "category": "life-sciences",
+    "required_capabilities": [
+      "specialist.integration"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "remote-mutation",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "UNSUPPORTED",
+    "canonical_jobs": [],
+    "qualification": "NOT_YET_QUALIFIED",
+    "source_page": 16
+  },
+  {
+    "id": "code-research",
+    "source": "github",
+    "source_url": "https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent",
+    "date_accessed": "2026-09-12",
+    "organisation": "GitHub",
+    "original_description": "repository research",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Inspect repository health and explain failing behaviour",
+    "category": "software-engineering",
+    "required_capabilities": [
+      "evidence.report"
+    ],
+    "likely_integrations": [
+      "git",
+      "github"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "repository-health-audit",
+      "investigate-regression",
+      "review-pull-request"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "bugfix",
+    "source": "github",
+    "source_url": "https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent",
+    "date_accessed": "2026-09-12",
+    "organisation": "GitHub",
+    "original_description": "bug repair",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Reproduce a defect, patch it, and execute regression tests",
+    "category": "software-engineering",
+    "required_capabilities": [
+      "evidence.report",
+      "code.execute"
+    ],
+    "likely_integrations": [
+      "git",
+      "github"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "repository-mutation",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "fix-failing-test"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "feature",
+    "source": "github",
+    "source_url": "https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent",
+    "date_accessed": "2026-09-12",
+    "organisation": "GitHub",
+    "original_description": "incremental features",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Implement a bounded feature with acceptance tests",
+    "category": "software-engineering",
+    "required_capabilities": [
+      "evidence.report",
+      "code.execute"
+    ],
+    "likely_integrations": [
+      "git",
+      "github"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "repository-mutation",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "small-feature",
+      "production-deployment",
+      "staging-deployment"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "docs",
+    "source": "github",
+    "source_url": "https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent",
+    "date_accessed": "2026-09-12",
+    "organisation": "GitHub",
+    "original_description": "documentation updates",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Compare documented behaviour with code",
+    "category": "software-engineering",
+    "required_capabilities": [
+      "evidence.report"
+    ],
+    "likely_integrations": [
+      "git",
+      "github"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "documentation-consistency"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "debt",
+    "source": "github",
+    "source_url": "https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent",
+    "date_accessed": "2026-09-12",
+    "organisation": "GitHub",
+    "original_description": "technical debt",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Plan and verify dependency maintenance",
+    "category": "software-engineering",
+    "required_capabilities": [
+      "evidence.report",
+      "code.execute"
+    ],
+    "likely_integrations": [
+      "git",
+      "github"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "repository-mutation",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "dependency-upgrade"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "service",
+    "source": "microsoft",
+    "source_url": "https://learn.microsoft.com/en-us/agents/adoption-patterns/pattern-workplace-it-services",
+    "date_accessed": "2026-09-12",
+    "organisation": "Microsoft",
+    "original_description": "service intake and resolution",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Triage requests and route exceptions to service owners",
+    "category": "it-operations",
+    "required_capabilities": [
+      "evidence.report"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "customer-support-triage",
+      "diagnose-unavailable-service",
+      "restart-failed-service",
+      "connector-interruption"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "leave",
+    "source": "microsoft",
+    "source_url": "https://learn.microsoft.com/en-us/agents/adoption-patterns/pattern-workplace-it-services",
+    "date_accessed": "2026-09-12",
+    "organisation": "Microsoft",
+    "original_description": "LTIMindtree leave requests",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Validate a leave request against policy and availability",
+    "category": "business-administration",
+    "required_capabilities": [
+      "evidence.report"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "schedule-proposal"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "assets",
+    "source": "microsoft",
+    "source_url": "https://learn.microsoft.com/en-us/agents/adoption-patterns/pattern-workplace-it-services",
+    "date_accessed": "2026-09-12",
+    "organisation": "Microsoft",
+    "original_description": "LTIMindtree asset requests",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Reconcile asset demand and inventory before approval",
+    "category": "business-administration",
+    "required_capabilities": [
+      "evidence.report"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "invoice-reconciliation"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "support",
+    "source": "aws",
+    "source_url": "https://aws.amazon.com/ai/generative-ai/use-cases/agent-assist/",
+    "date_accessed": "2026-09-12",
+    "organisation": "AWS",
+    "original_description": "contextual support assistance",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Classify a customer issue using policy and case history",
+    "category": "customer-service",
+    "required_capabilities": [
+      "evidence.report"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "customer-support-triage"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "response",
+    "source": "aws",
+    "source_url": "https://aws.amazon.com/ai/generative-ai/use-cases/agent-assist/",
+    "date_accessed": "2026-09-12",
+    "organisation": "AWS",
+    "original_description": "recommended responses",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Draft a grounded support response and escalate uncertainty",
+    "category": "communications",
+    "required_capabilities": [
+      "evidence.report"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "draft-response"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "contact-summary",
+    "source": "aws",
+    "source_url": "https://aws.amazon.com/ai/generative-ai/use-cases/agent-assist/",
+    "date_accessed": "2026-09-12",
+    "organisation": "AWS",
+    "original_description": "conversation summaries",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Summarise decisions and unanswered customer questions",
+    "category": "communications",
+    "required_capabilities": [
+      "evidence.report"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "inbox-triage"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "parallel-research",
+    "source": "anthropic-parallel",
+    "source_url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+    "date_accessed": "2026-09-12",
+    "organisation": "Anthropic",
+    "original_description": "parallel research with citation checking",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Delegate distinct questions and merge attributed evidence",
+    "category": "multi-agent-orchestration",
+    "required_capabilities": [
+      "evidence.report",
+      "workers.parallel"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "fan-out-research",
+      "topic-monitor",
+      "dependency-graph",
+      "partial-worker-failure"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "long-coding",
+    "source": "anthropic-long",
+    "source_url": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+    "date_accessed": "2026-09-12",
+    "organisation": "Anthropic",
+    "original_description": "incremental coding across sessions",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Persist progress and resume a bounded task without duplication",
+    "category": "long-running-autonomous-work",
+    "required_capabilities": [
+      "evidence.report",
+      "checkpoint"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "checkpoint-resume",
+      "delayed-dependency",
+      "operator-pause-resume"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "home",
+    "source": "ha",
+    "source_url": "https://developers.home-assistant.io/docs/core/llm/",
+    "date_accessed": "2026-09-12",
+    "organisation": "Home Assistant",
+    "original_description": "exposed entity interaction",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Inspect device state and gate an entity change",
+    "category": "iot-home-automation",
+    "required_capabilities": [
+      "evidence.report",
+      "home-assistant.control"
+    ],
+    "likely_integrations": [
+      "home-assistant"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "remote-mutation",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "home-entity-control"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "inventory",
+    "source": "ollama",
+    "source_url": "https://docs.ollama.com/api/tags",
+    "date_accessed": "2026-09-12",
+    "organisation": "Ollama",
+    "original_description": "model inventory API",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Enumerate available models and immutable model identifiers",
+    "category": "model-ai-operations",
+    "required_capabilities": [
+      "evidence.report",
+      "http.read"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "discover-models"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "probes",
+    "source": "garak",
+    "source_url": "https://github.com/NVIDIA/garak",
+    "date_accessed": "2026-09-12",
+    "organisation": "NVIDIA / garak",
+    "original_description": "LLM failure probes",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Test grounded answers and prompt-injection resistance",
+    "category": "cybersecurity",
+    "required_capabilities": [
+      "evidence.report"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "hallucination-resistance"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "papers",
+    "source": "google",
+    "source_url": "https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders",
+    "date_accessed": "2026-09-12",
+    "organisation": "Google Cloud",
+    "original_description": "Anara scientific-document summaries",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Compare research sources and retain evidence references",
+    "category": "research",
+    "required_capabilities": [
+      "evidence.report"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "source-comparison",
+      "contradictory-evidence",
+      "technical-research"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "contracts",
+    "source": "google",
+    "source_url": "https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders",
+    "date_accessed": "2026-09-12",
+    "organisation": "Google Cloud",
+    "original_description": "DocuSign agreement summaries",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Extract clauses with document locations",
+    "category": "document-processing",
+    "required_capabilities": [
+      "evidence.report"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "structured-extraction",
+      "document-comparison"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "mail",
+    "source": "google",
+    "source_url": "https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders",
+    "date_accessed": "2026-09-12",
+    "organisation": "Google Cloud",
+    "original_description": "Joe the Architect email summaries",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Recover decisions and outstanding actions from messages",
+    "category": "communications",
+    "required_capabilities": [
+      "evidence.report"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "inbox-triage",
+      "meeting-preparation"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "tariffs",
+    "source": "google",
+    "source_url": "https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders",
+    "date_accessed": "2026-09-12",
+    "organisation": "Google Cloud",
+    "original_description": "Deloitte tariff reconciliation",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Match extracted amounts to filings and flag mismatches",
+    "category": "finance",
+    "required_capabilities": [
+      "evidence.report"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "invoice-reconciliation"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "sales",
+    "source": "google",
+    "source_url": "https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders",
+    "date_accessed": "2026-09-12",
+    "organisation": "Google Cloud",
+    "original_description": "Dun & Bradstreet business verification",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Validate CRM record identity and surface exceptions",
+    "category": "sales",
+    "required_capabilities": [
+      "evidence.report"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "crm-record-analysis"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "reports",
+    "source": "google",
+    "source_url": "https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders",
+    "date_accessed": "2026-09-12",
+    "organisation": "Google Cloud",
+    "original_description": "Incrementa reporting analysis",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Analyse campaign measures and draft a sourced report",
+    "category": "marketing",
+    "required_capabilities": [
+      "evidence.report"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "csv-analysis"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "knowledge",
+    "source": "google",
+    "source_url": "https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders",
+    "date_accessed": "2026-09-12",
+    "organisation": "Google Cloud",
+    "original_description": "AODocs validated-document answers",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Answer questions from current controlled documents",
+    "category": "knowledge-work",
+    "required_capabilities": [
+      "evidence.report"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "read-only",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "REQUIRES_CONFIGURATION",
+    "canonical_jobs": [
+      "document-collection-summary"
+    ],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "safety",
+    "source": "google",
+    "source_url": "https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders",
+    "date_accessed": "2026-09-12",
+    "organisation": "Google Cloud",
+    "original_description": "factory safety monitoring",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Detect physical hazards from live video",
+    "category": "physical-safety",
+    "required_capabilities": [
+      "specialist.integration"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "remote-mutation",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "UNSUPPORTED",
+    "canonical_jobs": [],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "media",
+    "source": "google",
+    "source_url": "https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders",
+    "date_accessed": "2026-09-12",
+    "organisation": "Google Cloud",
+    "original_description": "WPP creative variations",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Generate and evaluate marketing video variations",
+    "category": "creative-media",
+    "required_capabilities": [
+      "specialist.integration"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "remote-mutation",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "UNSUPPORTED",
+    "canonical_jobs": [],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "security-response",
+    "source": "google",
+    "source_url": "https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders",
+    "date_accessed": "2026-09-12",
+    "organisation": "Google Cloud",
+    "original_description": "automated threat remediation",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Isolate compromised infrastructure with verified authority",
+    "category": "cybersecurity",
+    "required_capabilities": [
+      "specialist.integration"
+    ],
+    "likely_integrations": [
+      "operator-selected source"
+    ],
+    "autonomy_level": "bounded-with-human-review",
+    "mutation_risk": "remote-mutation",
+    "human_approval_requirement": "Explicit target-scoped grant; consequential actions require action approval",
+    "agent_control_support": "UNSUPPORTED",
+    "canonical_jobs": [],
+    "qualification": "NOT_YET_QUALIFIED"
+  },
+  {
+    "id": "dataiku-tickets",
+    "source": "dataiku",
+    "source_url": "https://pages.dataiku.com/the-ultimate-guide-to-ai-agent-use-cases",
+    "date_accessed": "2026-09-12",
+    "organisation": "Dataiku",
+    "original_description": "IT support ticket manager",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Retrieve similar resolved tickets, draft answers for approval, route difficult cases",
+    "category": "it-operations",
+    "required_capabilities": [
+      "evidence.report",
+      "specialist.integration"
+    ],
+    "likely_integrations": [
+      "sector-system",
+      "document-store"
+    ],
+    "autonomy_level": "human-supervised",
+    "mutation_risk": "remote-mutation",
+    "human_approval_requirement": "Human approval before sending, changing records or acting on recommendations",
+    "agent_control_support": "REQUIRES_CONNECTOR",
+    "canonical_jobs": [
+      "customer-support-triage",
+      "draft-response"
+    ],
+    "qualification": "NOT_YET_QUALIFIED",
+    "source_page": 12
+  },
+  {
+    "id": "dataiku-invoices",
+    "source": "dataiku",
+    "source_url": "https://pages.dataiku.com/the-ultimate-guide-to-ai-agent-use-cases",
+    "date_accessed": "2026-09-12",
+    "organisation": "Dataiku",
+    "original_description": "Invoicing and billing processor",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Prioritise unpaid invoices using terms, relationships and payment history; prepare CRM updates",
+    "category": "finance",
+    "required_capabilities": [
+      "evidence.report",
+      "specialist.integration"
+    ],
+    "likely_integrations": [
+      "sector-system",
+      "document-store"
+    ],
+    "autonomy_level": "human-supervised",
+    "mutation_risk": "remote-mutation",
+    "human_approval_requirement": "Human approval before sending, changing records or acting on recommendations",
+    "agent_control_support": "REQUIRES_CONNECTOR",
+    "canonical_jobs": [
+      "invoice-reconciliation"
+    ],
+    "qualification": "NOT_YET_QUALIFIED",
+    "source_page": 13
+  },
+  {
+    "id": "dataiku-sales",
+    "source": "dataiku",
+    "source_url": "https://pages.dataiku.com/the-ultimate-guide-to-ai-agent-use-cases",
+    "date_accessed": "2026-09-12",
+    "organisation": "Dataiku",
+    "original_description": "Personalized sales assistant",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Optimise store pricing, inventory and promotions using demand and customer segments",
+    "category": "sales",
+    "required_capabilities": [
+      "evidence.report",
+      "specialist.integration"
+    ],
+    "likely_integrations": [
+      "sector-system",
+      "document-store"
+    ],
+    "autonomy_level": "human-supervised",
+    "mutation_risk": "remote-mutation",
+    "human_approval_requirement": "Human approval before sending, changing records or acting on recommendations",
+    "agent_control_support": "UNSUPPORTED",
+    "canonical_jobs": [],
+    "qualification": "NOT_YET_QUALIFIED",
+    "source_page": 15,
+    "source_issue": "How-it-works bullets duplicate invoice processing; normalisation uses business challenge and architecture, not inconsistent bullets"
+  },
+  {
+    "id": "dataiku-compliance",
+    "source": "dataiku",
+    "source_url": "https://pages.dataiku.com/the-ultimate-guide-to-ai-agent-use-cases",
+    "date_accessed": "2026-09-12",
+    "organisation": "Dataiku",
+    "original_description": "Regulatory compliance navigator",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Monitor jurisdictions, compare policies, prioritise gaps and draft an implementation roadmap",
+    "category": "compliance",
+    "required_capabilities": [
+      "evidence.report",
+      "specialist.integration"
+    ],
+    "likely_integrations": [
+      "sector-system",
+      "document-store"
+    ],
+    "autonomy_level": "human-supervised",
+    "mutation_risk": "remote-mutation",
+    "human_approval_requirement": "Human approval before sending, changing records or acting on recommendations",
+    "agent_control_support": "REQUIRES_CONNECTOR",
+    "canonical_jobs": [
+      "topic-monitor",
+      "document-comparison"
+    ],
+    "qualification": "NOT_YET_QUALIFIED",
+    "source_page": 17
+  },
+  {
+    "id": "dataiku-supply",
+    "source": "dataiku",
+    "source_url": "https://pages.dataiku.com/the-ultimate-guide-to-ai-agent-use-cases",
+    "date_accessed": "2026-09-12",
+    "organisation": "Dataiku",
+    "original_description": "Supply chain resilience",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Map disruptions to products, compare alternatives and simulate mitigations",
+    "category": "supply-chain",
+    "required_capabilities": [
+      "evidence.report",
+      "specialist.integration"
+    ],
+    "likely_integrations": [
+      "ERP",
+      "supplier-database",
+      "logistics",
+      "news"
+    ],
+    "autonomy_level": "human-supervised",
+    "mutation_risk": "remote-mutation",
+    "human_approval_requirement": "Human approval before sending, changing records or acting on recommendations",
+    "agent_control_support": "REQUIRES_CONNECTOR",
+    "canonical_jobs": [
+      "supply-chain-risk"
+    ],
+    "qualification": "NOT_YET_QUALIFIED",
+    "source_page": 18
+  },
+  {
+    "id": "dataiku-client",
+    "source": "dataiku",
+    "source_url": "https://pages.dataiku.com/the-ultimate-guide-to-ai-agent-use-cases",
+    "date_accessed": "2026-09-12",
+    "organisation": "Dataiku",
+    "original_description": "Client relationship intelligence",
+    "description_kind": "paraphrase",
+    "normalised_workload": "Reconcile CRM and market changes, prioritise outreach and prepare context for meetings",
+    "category": "financial-services",
+    "required_capabilities": [
+      "evidence.report",
+      "specialist.integration"
+    ],
+    "likely_integrations": [
+      "sector-system",
+      "document-store"
+    ],
+    "autonomy_level": "human-supervised",
+    "mutation_risk": "remote-mutation",
+    "human_approval_requirement": "Human approval before sending, changing records or acting on recommendations",
+    "agent_control_support": "REQUIRES_CONNECTOR",
+    "canonical_jobs": [
+      "crm-record-analysis",
+      "meeting-preparation"
+    ],
+    "qualification": "NOT_YET_QUALIFIED",
+    "source_page": 19
+  }
+]

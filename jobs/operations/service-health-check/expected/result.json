@@ -1,0 +1,11 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "health": "healthy",
+    "restart": false
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

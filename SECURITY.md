@@ -1,0 +1,9 @@
+# Trust boundary
+
+All downloaded community content is untrusted. Manifest presence and static validation grant no execution authority. Maintainers review intent, permission scope, provenance and validator quality before merge; operators approve exact targets and effects before execution.
+
+The CLI parses bounded YAML without aliases, validates schemas, rejects symlink/path traversal, checks declared payload consistency, scans common secret patterns and suspicious commands, and generates SHA-256 integrity records. It does not evaluate shell expressions, import job code or execute arbitrary validators. Code fixtures are inert data until explicitly run in an isolated sandbox by an authorised evaluator.
+
+These checks are not a sandbox and cannot establish that natural-language instructions are safe, that a validator is complete, that a declared permission matches every possible runtime effect, or that a result's self-reported action history is true. Runtime tool mediation and independent evidence remain essential. The source checkout and Node dependencies are trusted tooling; execute the CLI only from a reviewed revision. Pull-request CI runs contributor code on disposable GitHub-hosted runners, with read-only repository permission and no application credentials. Never use pull_request_target to execute contributor code.
+
+Do not contribute private keys, tokens, real personal records, institution data or sensitive estate addresses. Use synthetic fixtures. Report security concerns privately through the repository owner's GitHub contact or private vulnerability reporting if enabled. Do not publish a secret in an issue. Dependency auditing and source review supplement the lightweight scanner.

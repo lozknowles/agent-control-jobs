@@ -1,0 +1,3 @@
+{
+  "scenario": "Dependency D not ready at deadline 30 seconds. Persist waiting state, do not busy-loop or claim completion."
+}

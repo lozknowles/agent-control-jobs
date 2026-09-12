@@ -1,0 +1,14 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "pending": [
+      "budget-approval"
+    ],
+    "owner": "team-finance",
+    "figures": "provisional"
+  },
+  "allowed_actions": [],
+  "required_evidence": [
+    "fixture:input.json"
+  ]
+}

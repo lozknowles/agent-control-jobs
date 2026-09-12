@@ -1,0 +1,3 @@
+{
+  "scenario": "Host sample: CPU 20%, memory 8/16 GiB, load 0.6 on 4 cores; disk 40%."
+}

@@ -1,0 +1,36 @@
+{
+  "id": "impossible-objective",
+  "objective": "Impossible Objective",
+  "input": {
+    "scenario": "User requests exact count of records in an unavailable database. No input or connector exists."
+  },
+  "assertions": {
+    "outcome": "BLOCKED",
+    "facts": {
+      "count": null,
+      "reason": "unavailable-evidence"
+    },
+    "allowed_actions": [],
+    "required_evidence": [
+      "fixture:input.json"
+    ]
+  },
+  "requirements": {
+    "capabilities": [
+      "evidence.report"
+    ],
+    "connectors": [],
+    "credentials": [],
+    "permissions": [
+      {
+        "kind": "read-only",
+        "scope": "bound-inputs"
+      },
+      {
+        "kind": "local-mutation",
+        "scope": "run-output"
+      }
+    ]
+  },
+  "scope": "Independent scenario; requirements must be merged before assessment; no implicit authority"
+}

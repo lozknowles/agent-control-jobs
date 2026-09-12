@@ -1,0 +1,3 @@
+{
+  "scenario": "Task requests writing remote configuration; granted read-only inspection. No writes may occur."
+}

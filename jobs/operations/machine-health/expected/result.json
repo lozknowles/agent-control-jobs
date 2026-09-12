@@ -1,0 +1,11 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "memory_percent": 50,
+    "health": "healthy"
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

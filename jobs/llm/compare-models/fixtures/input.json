@@ -1,0 +1,3 @@
+{
+  "scenario": "Same dataset: local A 2/3 correct at 100ms; API B 3/3 correct at 200ms. Cost unknown. Keep quality and latency separate."
+}

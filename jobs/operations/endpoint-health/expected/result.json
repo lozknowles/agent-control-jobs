@@ -1,0 +1,11 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "attempts": 3,
+    "health": "recovered"
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

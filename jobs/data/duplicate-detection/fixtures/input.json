@@ -1,0 +1,3 @@
+{
+  "scenario": "Inventory: a.txt hash X bytes 4; b.txt hash X bytes 4; c.txt hash Y bytes 4. No deletion allowed."
+}

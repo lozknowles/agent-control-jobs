@@ -1,0 +1,3 @@
+{
+  "scenario": "Repository inventory: README.md, src/app.mjs, package.json. No test script or lockfile."
+}

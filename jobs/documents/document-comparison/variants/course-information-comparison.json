@@ -1,0 +1,38 @@
+{
+  "id": "course-information-comparison",
+  "objective": "Course Information Comparison",
+  "input": {
+    "scenario": "Course A requires level 2; B level 3. Applicant synthetic record has level 2. This is information guidance, not admission."
+  },
+  "assertions": {
+    "outcome": "COMPLETE",
+    "facts": {
+      "meets_stated": [
+        "A"
+      ],
+      "admitted": false
+    },
+    "allowed_actions": [],
+    "required_evidence": [
+      "fixture:input.json"
+    ]
+  },
+  "requirements": {
+    "capabilities": [
+      "evidence.report"
+    ],
+    "connectors": [],
+    "credentials": [],
+    "permissions": [
+      {
+        "kind": "read-only",
+        "scope": "bound-inputs"
+      },
+      {
+        "kind": "local-mutation",
+        "scope": "run-output"
+      }
+    ]
+  },
+  "scope": "Independent scenario; requirements must be merged before assessment; no implicit authority"
+}

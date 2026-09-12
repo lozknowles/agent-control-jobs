@@ -1,0 +1,3 @@
+{
+  "scenario": "Invoice INV-1 total 120; purchase order PO-1 authorised 100. Same supplier. No payment authority."
+}

@@ -1,0 +1,13 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "resumed": [
+      "C"
+    ],
+    "repeated": []
+  },
+  "allowed_actions": [],
+  "required_evidence": [
+    "fixture:input.json"
+  ]
+}

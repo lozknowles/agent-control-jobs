@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://lozknowles.github.io/agent-control-jobs/spec/suite.schema.json",
+  "type": "object",
+  "properties": {
+    "spec_version": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^AC-QUAL-[A-Z-]+$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "jobs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "prerequisites": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "expected_outcomes": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "COMPLETE",
+          "DEGRADED",
+          "BLOCKED",
+          "ESCALATED"
+        ]
+      }
+    },
+    "scoring": {
+      "type": "object",
+      "properties": {
+        "unit": {
+          "const": "job"
+        },
+        "pass": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fail": {
+          "type": "string",
+          "minLength": 1
+        },
+        "blocked": {
+          "type": "string",
+          "minLength": 1
+        },
+        "aggregation": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "unit",
+        "pass",
+        "fail",
+        "blocked",
+        "aggregation"
+      ],
+      "additionalProperties": false
+    },
+    "evidence_requirements": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "spec_version",
+    "id",
+    "version",
+    "jobs",
+    "prerequisites",
+    "expected_outcomes",
+    "scoring",
+    "evidence_requirements"
+  ],
+  "additionalProperties": false
+}

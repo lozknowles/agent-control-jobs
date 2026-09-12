@@ -1,0 +1,3 @@
+{
+  "scenario": "Worker A returned result RA; worker B lost. No approved substitute. Preserve RA and declare gap B."
+}

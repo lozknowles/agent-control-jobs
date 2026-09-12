@@ -1,0 +1,16 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "affected": [
+      "A"
+    ],
+    "gap_days": 3,
+    "alternative": "S2",
+    "certified": "unverified",
+    "ordered": false
+  },
+  "allowed_actions": [],
+  "required_evidence": [
+    "fixture:input.json"
+  ]
+}

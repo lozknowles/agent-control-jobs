@@ -1,0 +1,13 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "high": 5,
+    "low": 0,
+    "middle": 3,
+    "invalid": "rejected"
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

@@ -1,0 +1,12 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "M1": "escalate",
+    "M2": "answer-from-faq",
+    "M3": "no-action"
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

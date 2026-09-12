@@ -1,0 +1,12 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "queue": "security",
+    "priority": "high",
+    "redact": true
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

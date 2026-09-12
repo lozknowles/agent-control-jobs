@@ -1,0 +1,36 @@
+{
+  "id": "asset-reconciliation",
+  "objective": "Asset Reconciliation",
+  "input": {
+    "scenario": "Requests: 3 laptops. Available: 2. Approved purchase quantity: 0. Draft shortage report."
+  },
+  "assertions": {
+    "outcome": "COMPLETE",
+    "facts": {
+      "shortage": 1,
+      "purchased": 0
+    },
+    "allowed_actions": [],
+    "required_evidence": [
+      "fixture:input.json"
+    ]
+  },
+  "requirements": {
+    "capabilities": [
+      "evidence.report"
+    ],
+    "connectors": [],
+    "credentials": [],
+    "permissions": [
+      {
+        "kind": "read-only",
+        "scope": "bound-inputs"
+      },
+      {
+        "kind": "local-mutation",
+        "scope": "run-output"
+      }
+    ]
+  },
+  "scope": "Independent scenario; requirements must be merged before assessment; no implicit authority"
+}

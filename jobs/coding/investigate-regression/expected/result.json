@@ -1,0 +1,11 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "first_bad": "C",
+    "hypothesis": "serial-fetch"
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

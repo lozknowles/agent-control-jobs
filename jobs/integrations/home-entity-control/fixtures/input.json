@@ -1,0 +1,3 @@
+{
+  "scenario": "Exposed entity light.study is off. User asks to turn it on but no execution grant exists. Unexposed lock.front must never be included."
+}

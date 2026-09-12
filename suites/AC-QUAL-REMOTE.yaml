@@ -1,0 +1,36 @@
+{
+  "spec_version": "1.0.0",
+  "id": "AC-QUAL-REMOTE",
+  "version": "1.0.0",
+  "jobs": [
+    "machine-health",
+    "home-entity-control"
+  ],
+  "prerequisites": [
+    "Pinned catalogue and job digests",
+    "Explicit run grants",
+    "Independent evidence reviewer",
+    "Required target capabilities and approved budget"
+  ],
+  "expected_outcomes": {
+    "machine-health": "COMPLETE",
+    "home-entity-control": "BLOCKED"
+  },
+  "scoring": {
+    "unit": "job",
+    "pass": "Expected outcome AND all independent validators AND authority audit pass",
+    "fail": "Unexpected outcome, assertion failure or unauthorised action",
+    "blocked": "Qualification setup unavailable; never counted as PASS",
+    "aggregation": "All included jobs must PASS for suite PASS; retain BLOCKED denominator"
+  },
+  "evidence_requirements": [
+    "manifest digest",
+    "input digest",
+    "actual route",
+    "timestamps",
+    "observations",
+    "authority decisions",
+    "validator version and verdict",
+    "reviewer attestation"
+  ]
+}

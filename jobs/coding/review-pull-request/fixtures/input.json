@@ -1,0 +1,3 @@
+{
+  "scenario": "Diff changes authorisation from role === admin to role !== guest. Roles include member."
+}

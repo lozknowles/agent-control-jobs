@@ -1,0 +1,36 @@
+{
+  "id": "timetable-reconciliation",
+  "objective": "Timetable Reconciliation",
+  "input": {
+    "scenario": "Room R1 allocated course A 09:00-10:00 and B 09:30-10:30 on same date."
+  },
+  "assertions": {
+    "outcome": "COMPLETE",
+    "facts": {
+      "room": "R1",
+      "overlap_minutes": 30
+    },
+    "allowed_actions": [],
+    "required_evidence": [
+      "fixture:input.json"
+    ]
+  },
+  "requirements": {
+    "capabilities": [
+      "evidence.report"
+    ],
+    "connectors": [],
+    "credentials": [],
+    "permissions": [
+      {
+        "kind": "read-only",
+        "scope": "bound-inputs"
+      },
+      {
+        "kind": "local-mutation",
+        "scope": "run-output"
+      }
+    ]
+  },
+  "scope": "Independent scenario; requirements must be merged before assessment; no implicit authority"
+}

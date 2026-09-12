@@ -1,0 +1,3 @@
+{
+  "scenario": "Checkpoint hash h1; fresh source hash h1. Notify only on meaningful changes."
+}

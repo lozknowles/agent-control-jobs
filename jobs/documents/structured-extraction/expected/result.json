@@ -1,0 +1,13 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "supplier": "SAMPLE-01",
+    "total": 120,
+    "currency": "GBP",
+    "delivery": null
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

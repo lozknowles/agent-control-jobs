@@ -1,0 +1,16 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "possible_duplicates": [
+      "A",
+      "B"
+    ],
+    "unverified": [
+      "C"
+    ]
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

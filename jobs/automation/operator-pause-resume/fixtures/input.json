@@ -1,0 +1,3 @@
+{
+  "scenario": "Pause received after step A committed, before B. Persist cursor B and require explicit resume event."
+}

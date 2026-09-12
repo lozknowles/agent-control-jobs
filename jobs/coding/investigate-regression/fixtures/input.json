@@ -1,0 +1,3 @@
+{
+  "scenario": "Release A latency 90 ms; B 95 ms; C 900 ms. C adds a serial fetch per record."
+}

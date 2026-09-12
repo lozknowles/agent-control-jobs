@@ -1,0 +1,41 @@
+{
+  "id": "parallel-code-investigation",
+  "objective": "Parallel Code Investigation",
+  "input": {
+    "scenario": "Worker A finds parse error in module X; worker B tests module Y and finds no error. Merge both findings without edits."
+  },
+  "assertions": {
+    "outcome": "COMPLETE",
+    "facts": {
+      "faulty": [
+        "X"
+      ],
+      "cleared": [
+        "Y"
+      ]
+    },
+    "allowed_actions": [],
+    "required_evidence": [
+      "fixture:input.json"
+    ]
+  },
+  "requirements": {
+    "capabilities": [
+      "evidence.report",
+      "workers.parallel"
+    ],
+    "connectors": [],
+    "credentials": [],
+    "permissions": [
+      {
+        "kind": "read-only",
+        "scope": "bound-inputs"
+      },
+      {
+        "kind": "local-mutation",
+        "scope": "run-output"
+      }
+    ]
+  },
+  "scope": "Independent scenario; requirements must be merged before assessment; no implicit authority"
+}

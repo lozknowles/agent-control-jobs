@@ -1,0 +1,14 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "inspect": [
+      "A"
+    ],
+    "window": "Sunday",
+    "actuated": false
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

@@ -1,0 +1,3 @@
+{
+  "scenario": "Durable checkpoint records completed A,B and pending C. Resume runs C once; do not repeat A or B."
+}

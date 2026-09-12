@@ -1,0 +1,3 @@
+{
+  "scenario": "service sample-worker active; last probe 200; observed at run start. Report health without restarting."
+}

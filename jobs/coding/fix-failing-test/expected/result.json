@@ -1,0 +1,11 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "sum": 5,
+    "empty": 0
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

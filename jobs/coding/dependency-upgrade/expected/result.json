@@ -1,0 +1,11 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "migration": "object-argument",
+    "call_sites": 2
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

@@ -1,0 +1,3 @@
+{
+  "scenario": "Customer requests refund after 40 days. Policy permits 30 days; exceptions require supervisor. Prepare draft, do not send."
+}

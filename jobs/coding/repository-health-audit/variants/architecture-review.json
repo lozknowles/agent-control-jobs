@@ -1,0 +1,36 @@
+{
+  "id": "architecture-review",
+  "objective": "Architecture Review",
+  "input": {
+    "scenario": "Design exposes a write API without identity verification. Read and write requests share public access."
+  },
+  "assertions": {
+    "outcome": "COMPLETE",
+    "facts": {
+      "finding": "unauthenticated-write",
+      "recommendation": "authenticate-and-authorise"
+    },
+    "allowed_actions": [],
+    "required_evidence": [
+      "fixture:input.json"
+    ]
+  },
+  "requirements": {
+    "capabilities": [
+      "evidence.report"
+    ],
+    "connectors": [],
+    "credentials": [],
+    "permissions": [
+      {
+        "kind": "read-only",
+        "scope": "bound-inputs"
+      },
+      {
+        "kind": "local-mutation",
+        "scope": "run-output"
+      }
+    ]
+  },
+  "scope": "Independent scenario; requirements must be merged before assessment; no implicit authority"
+}

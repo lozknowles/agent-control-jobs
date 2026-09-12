@@ -1,0 +1,12 @@
+[
+  "read-only",
+  "local-mutation",
+  "remote-mutation",
+  "repository-mutation",
+  "service-control",
+  "deployment",
+  "credential-use",
+  "external-communication",
+  "financial-action",
+  "destructive-operation"
+]

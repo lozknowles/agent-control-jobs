@@ -1,0 +1,3 @@
+{
+  "scenario": "Production candidate abc123; backup and rollback evidence absent. Approval absent. Stop before deployment."
+}

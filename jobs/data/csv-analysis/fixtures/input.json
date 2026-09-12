@@ -1,0 +1,3 @@
+{
+  "scenario": "CSV rows: month,amount\nJan,10\nFeb,20\nMar,30. Report total and mean; preserve units as unspecified."
+}

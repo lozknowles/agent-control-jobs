@@ -1,0 +1,16 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "groups": [
+      [
+        "a.txt",
+        "b.txt"
+      ]
+    ],
+    "deleted": 0
+  },
+  "allowed_actions": [],
+  "required_evidence": [
+    "fixture:input.json"
+  ]
+}

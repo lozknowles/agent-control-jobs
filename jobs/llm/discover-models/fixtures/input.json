@@ -1,0 +1,3 @@
+{
+  "scenario": "Ollama /api/tags contains model alpha digest a1 and beta digest b2. Do not infer context length."
+}

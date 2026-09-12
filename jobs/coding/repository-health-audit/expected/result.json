@@ -1,0 +1,13 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "missing": [
+      "lockfile",
+      "test-script"
+    ]
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

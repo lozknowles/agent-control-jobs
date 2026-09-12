@@ -1,0 +1,3 @@
+{
+  "scenario": "Patch sum(values) in fixture.mjs to include the final element. Preserve empty-array output 0. Run its tests."
+}

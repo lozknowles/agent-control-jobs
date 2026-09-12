@@ -1,0 +1,37 @@
+{
+  "id": "structured-output",
+  "objective": "Structured Output",
+  "input": {
+    "scenario": "Model output is {\"count\":\"3\"}; required count integer. No coercion permitted."
+  },
+  "assertions": {
+    "outcome": "COMPLETE",
+    "facts": {
+      "valid": false,
+      "reason": "type-mismatch"
+    },
+    "allowed_actions": [],
+    "required_evidence": [
+      "fixture:input.json"
+    ]
+  },
+  "requirements": {
+    "capabilities": [
+      "evidence.report",
+      "model.invoke"
+    ],
+    "connectors": [],
+    "credentials": [],
+    "permissions": [
+      {
+        "kind": "read-only",
+        "scope": "bound-inputs"
+      },
+      {
+        "kind": "local-mutation",
+        "scope": "run-output"
+      }
+    ]
+  },
+  "scope": "Independent scenario; requirements must be merged before assessment; no implicit authority"
+}

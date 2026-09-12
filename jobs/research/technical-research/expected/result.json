@@ -1,0 +1,11 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "maximum": 20,
+    "source": "B"
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

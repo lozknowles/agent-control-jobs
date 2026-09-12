@@ -1,0 +1,164 @@
+{
+  "schema": "agent-control-jobs.control-integration/v1",
+  "started_at": "2026-09-12T20:38:06.965Z",
+  "ended_at": "2026-09-12T20:38:07.104Z",
+  "controller_revision": "7c40497e77570efe9d644b959a0b2ebe5d776127",
+  "adapter_sha256": "7cfd9e3740056f4d609e030f45e3a8b30a07c470a706024485b7d7438feb96d9",
+  "scope": "live read-only control integration; no model, no production actions, no physical handset qualification",
+  "authority": "Explicit maintainer request plus approved-development-read-only flag; isolated runtime state",
+  "model": null,
+  "parcel_id": "parcel-b6f690ad-32ad-41ea-be97-1d8ce42c1354",
+  "parcel_status": "SUCCEEDED",
+  "decision": "COMPLETE",
+  "jobs": [
+    {
+      "id": "machine-health",
+      "job_version": "1.0.0",
+      "job_digest": "d121087cf9089b343f6a6052131393f0ff308e15d51b7062f7fc125b4290fa48",
+      "run_id": "run-e2ce1b9d-acb3-46c9-9316-f0d3f53e9ee2",
+      "status": "SUCCEEDED",
+      "observations": {
+        "platform": "linux",
+        "cpu_count": 8,
+        "total_bytes": 67296632832,
+        "free_bytes": 44743184384,
+        "load": [
+          1.94,
+          1.77,
+          1.5
+        ],
+        "observed_at": "2026-09-12T20:38:07.003Z"
+      },
+      "observation_sha256": "06087c6289e8b6cef9dd51b771f41c415aba9155f0006e12bc2ccb181549d301",
+      "artifacts": [
+        {
+          "id": "artifact-074aa987-c9ee-4fff-b056-067b7081f27a",
+          "sha256": "06087c6289e8b6cef9dd51b771f41c415aba9155f0006e12bc2ccb181549d301"
+        }
+      ],
+      "qualification": "CONTROL_OBSERVATION_ONLY"
+    },
+    {
+      "id": "disk-space-check",
+      "job_version": "1.0.0",
+      "job_digest": "839227e1c239fb5a0cedb66f392cac5ac65c26a80d63b32b9bbc17c32a104a12",
+      "run_id": "run-4a27accc-a260-45da-920a-c4126c30ebee",
+      "status": "SUCCEEDED",
+      "observations": {
+        "block_bytes": 4096,
+        "total_blocks": 239804694,
+        "available_blocks": 158566731,
+        "used_percent": 28.789315525241552,
+        "scope": "isolated-run-filesystem",
+        "observed_at": "2026-09-12T20:38:07.030Z"
+      },
+      "observation_sha256": "2c545329c194d637e3ea4b30ad083cecb9e9b62c2eb8ae7211ca9d20190fc545",
+      "artifacts": [
+        {
+          "id": "artifact-7a9e629a-1975-43c1-a537-48e457abe0ab",
+          "sha256": "2c545329c194d637e3ea4b30ad083cecb9e9b62c2eb8ae7211ca9d20190fc545"
+        }
+      ],
+      "qualification": "CONTROL_OBSERVATION_ONLY"
+    },
+    {
+      "id": "gpu-inspection",
+      "job_version": "1.0.0",
+      "job_digest": "b596695a65e1a00b702ab8ef622377d8d9e0e381b6912fd7d3ee0d392b258b83",
+      "run_id": "run-470e03a8-cff7-446a-b23c-befcf5ad23f5",
+      "status": "SUCCEEDED",
+      "observations": {
+        "gpus": [
+          {
+            "total_mib": 16384,
+            "used_mib": 14627,
+            "utilization_percent": 0
+          }
+        ],
+        "process_attribution": "NOT_TESTED",
+        "observed_at": "2026-09-12T20:38:07.082Z"
+      },
+      "observation_sha256": "66e16292833238f90b8d5e8a75c9fed3e1e3e942d2fe2330b0f16cdd8fb6074d",
+      "artifacts": [
+        {
+          "id": "artifact-39010826-a2fe-44fb-9525-261bc1b359f0",
+          "sha256": "66e16292833238f90b8d5e8a75c9fed3e1e3e942d2fe2330b0f16cdd8fb6074d"
+        }
+      ],
+      "qualification": "CONTROL_OBSERVATION_ONLY"
+    }
+  ],
+  "timeline": [
+    {
+      "type": "task.received",
+      "at": "2026-09-12T20:38:06.970Z"
+    },
+    {
+      "type": "task.classified",
+      "at": "2026-09-12T20:38:06.970Z"
+    },
+    {
+      "type": "plan.selected",
+      "at": "2026-09-12T20:38:06.970Z"
+    },
+    {
+      "type": "route.requested",
+      "at": "2026-09-12T20:38:06.970Z"
+    },
+    {
+      "type": "route.requested",
+      "at": "2026-09-12T20:38:06.970Z"
+    },
+    {
+      "type": "route.requested",
+      "at": "2026-09-12T20:38:06.970Z"
+    },
+    {
+      "type": "baton.created",
+      "at": "2026-09-12T20:38:06.987Z"
+    },
+    {
+      "type": "stage.dispatched",
+      "at": "2026-09-12T20:38:06.994Z"
+    },
+    {
+      "type": "route.resolved",
+      "at": "2026-09-12T20:38:07.012Z"
+    },
+    {
+      "type": "baton.created",
+      "at": "2026-09-12T20:38:07.014Z"
+    },
+    {
+      "type": "stage.dispatched",
+      "at": "2026-09-12T20:38:07.018Z"
+    },
+    {
+      "type": "route.resolved",
+      "at": "2026-09-12T20:38:07.039Z"
+    },
+    {
+      "type": "baton.created",
+      "at": "2026-09-12T20:38:07.042Z"
+    },
+    {
+      "type": "stage.dispatched",
+      "at": "2026-09-12T20:38:07.047Z"
+    },
+    {
+      "type": "route.resolved",
+      "at": "2026-09-12T20:38:07.091Z"
+    },
+    {
+      "type": "verification.completed",
+      "at": "2026-09-12T20:38:07.095Z"
+    }
+  ],
+  "limitations": [
+    "No LLM reasoning exercised",
+    "No generic library importer installed",
+    "No process-level GPU cause investigation",
+    "No canonical live-agent qualification claimed"
+  ],
+  "private_state_sha256": "fc9706bfd3d42ccf493c0ef5077d4410cce12c654a80f7586902a3a34e1a6ed3"
+}

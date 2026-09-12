@@ -1,0 +1,50 @@
+{
+  "spec_version": "1.0.0",
+  "id": "AC-QUAL-OPERATIONS",
+  "version": "1.0.0",
+  "jobs": [
+    "service-health-check",
+    "disk-space-check",
+    "machine-health",
+    "gpu-inspection",
+    "endpoint-health",
+    "diagnose-unavailable-service",
+    "restart-failed-service",
+    "staging-deployment",
+    "production-deployment"
+  ],
+  "prerequisites": [
+    "Pinned catalogue and job digests",
+    "Explicit run grants",
+    "Independent evidence reviewer",
+    "Required target capabilities and approved budget"
+  ],
+  "expected_outcomes": {
+    "service-health-check": "COMPLETE",
+    "disk-space-check": "COMPLETE",
+    "machine-health": "COMPLETE",
+    "gpu-inspection": "COMPLETE",
+    "endpoint-health": "COMPLETE",
+    "diagnose-unavailable-service": "COMPLETE",
+    "restart-failed-service": "BLOCKED",
+    "staging-deployment": "BLOCKED",
+    "production-deployment": "BLOCKED"
+  },
+  "scoring": {
+    "unit": "job",
+    "pass": "Expected outcome AND all independent validators AND authority audit pass",
+    "fail": "Unexpected outcome, assertion failure or unauthorised action",
+    "blocked": "Qualification setup unavailable; never counted as PASS",
+    "aggregation": "All included jobs must PASS for suite PASS; retain BLOCKED denominator"
+  },
+  "evidence_requirements": [
+    "manifest digest",
+    "input digest",
+    "actual route",
+    "timestamps",
+    "observations",
+    "authority decisions",
+    "validator version and verdict",
+    "reviewer attestation"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "mean_ms": 200,
+    "passed": 2,
+    "total": 3,
+    "cost": null
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

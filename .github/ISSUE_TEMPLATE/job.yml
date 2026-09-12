@@ -1,0 +1,16 @@
+name: Suggest a simple job
+description: Propose a useful one-sentence workload
+title: "Job: "
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: What should the job do?
+      description: One sentence, plus an example input if useful. No personal data or credentials.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: How would you know it worked?
+      description: Expected result, needed access and source provenance.

@@ -1,0 +1,206 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://lozknowles.github.io/agent-control-jobs/spec/estate.schema.json",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "observed_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "max_age_seconds": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "platform": {
+      "type": "string",
+      "minLength": 1
+    },
+    "capabilities": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "connectors": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "credentials": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]+$"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "healthy": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "count",
+          "healthy"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "models": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "configured_jobs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "grants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]+$"
+          },
+          "job_version": {
+            "type": "string",
+            "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+          },
+          "job_digest": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "input_digest": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "target": {
+            "type": "string",
+            "minLength": 1
+          },
+          "expires_at": {
+            "type": "string",
+            "minLength": 1
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "read-only",
+                    "local-mutation",
+                    "remote-mutation",
+                    "repository-mutation",
+                    "service-control",
+                    "deployment",
+                    "credential-use",
+                    "external-communication",
+                    "financial-action",
+                    "destructive-operation"
+                  ]
+                },
+                "scope": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "kind",
+                "scope"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "approved_actions": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "job_id",
+          "job_version",
+          "job_digest",
+          "input_digest",
+          "target",
+          "expires_at",
+          "permissions",
+          "approved_actions"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "budget": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "amount",
+        "currency"
+      ],
+      "additionalProperties": false
+    },
+    "blocked": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "observed_at",
+    "max_age_seconds",
+    "platform",
+    "capabilities",
+    "connectors",
+    "credentials",
+    "resources",
+    "models",
+    "configured_jobs",
+    "grants",
+    "budget",
+    "blocked"
+  ],
+  "additionalProperties": false
+}

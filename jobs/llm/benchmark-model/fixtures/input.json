@@ -1,0 +1,3 @@
+{
+  "scenario": "Fixed task results: latencies 100,200,300 ms; passed 2 of 3; tokens and monetary cost not reported."
+}

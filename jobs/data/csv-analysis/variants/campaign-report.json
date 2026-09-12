@@ -1,0 +1,37 @@
+{
+  "id": "campaign-report",
+  "objective": "Campaign Report",
+  "input": {
+    "scenario": "Campaign A spend 100 clicks 50; B spend 60 clicks 60. Conversions unavailable."
+  },
+  "assertions": {
+    "outcome": "COMPLETE",
+    "facts": {
+      "A_cpc": 2,
+      "B_cpc": 1,
+      "roi": null
+    },
+    "allowed_actions": [],
+    "required_evidence": [
+      "fixture:input.json"
+    ]
+  },
+  "requirements": {
+    "capabilities": [
+      "evidence.report"
+    ],
+    "connectors": [],
+    "credentials": [],
+    "permissions": [
+      {
+        "kind": "read-only",
+        "scope": "bound-inputs"
+      },
+      {
+        "kind": "local-mutation",
+        "scope": "run-output"
+      }
+    ]
+  },
+  "scope": "Independent scenario; requirements must be merged before assessment; no implicit authority"
+}

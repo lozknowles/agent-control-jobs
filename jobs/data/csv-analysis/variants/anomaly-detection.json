@@ -1,0 +1,38 @@
+{
+  "id": "anomaly-detection",
+  "objective": "Anomaly Detection",
+  "input": {
+    "scenario": "Values 10,11,9,10,100. Flag values > 3 times median, state deterministic rule."
+  },
+  "assertions": {
+    "outcome": "COMPLETE",
+    "facts": {
+      "median": 10,
+      "anomalies": [
+        100
+      ]
+    },
+    "allowed_actions": [],
+    "required_evidence": [
+      "fixture:input.json"
+    ]
+  },
+  "requirements": {
+    "capabilities": [
+      "evidence.report"
+    ],
+    "connectors": [],
+    "credentials": [],
+    "permissions": [
+      {
+        "kind": "read-only",
+        "scope": "bound-inputs"
+      },
+      {
+        "kind": "local-mutation",
+        "scope": "run-output"
+      }
+    ]
+  },
+  "scope": "Independent scenario; requirements must be merged before assessment; no implicit authority"
+}

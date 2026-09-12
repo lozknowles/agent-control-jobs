@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://lozknowles.github.io/agent-control-jobs/spec/use-case.schema.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]+$"
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_url": {
+      "type": "string",
+      "pattern": "^https://"
+    },
+    "date_accessed": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "organisation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "original_description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description_kind": {
+      "const": "paraphrase"
+    },
+    "normalised_workload": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]+$"
+    },
+    "required_capabilities": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "likely_integrations": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "autonomy_level": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mutation_risk": {
+      "type": "string",
+      "minLength": 1
+    },
+    "human_approval_requirement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "agent_control_support": {
+      "enum": [
+        "IMPLEMENTED",
+        "RUNNABLE",
+        "REQUIRES_CONFIGURATION",
+        "REQUIRES_CONNECTOR",
+        "REQUIRES_CREDENTIAL",
+        "UNSUPPORTED",
+        "NOT_YET_QUALIFIED"
+      ]
+    },
+    "canonical_jobs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "qualification": {
+      "const": "NOT_YET_QUALIFIED"
+    },
+    "source_page": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source_issue": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "id",
+    "source",
+    "source_url",
+    "date_accessed",
+    "organisation",
+    "original_description",
+    "description_kind",
+    "normalised_workload",
+    "category",
+    "required_capabilities",
+    "likely_integrations",
+    "autonomy_level",
+    "mutation_risk",
+    "human_approval_requirement",
+    "agent_control_support",
+    "canonical_jobs",
+    "qualification"
+  ],
+  "additionalProperties": false
+}

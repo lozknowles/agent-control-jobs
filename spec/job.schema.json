@@ -1,0 +1,482 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://lozknowles.github.io/agent-control-jobs/spec/job.schema.json",
+  "type": "object",
+  "properties": {
+    "spec_version": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]+$"
+    },
+    "tags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "common_job": {
+      "type": "boolean"
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "published-use-case",
+              "agent-control-requirement",
+              "community",
+              "qualification",
+              "governance-test",
+              "failure-test"
+            ]
+          },
+          "reference": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https://"
+          }
+        },
+        "required": [
+          "type",
+          "reference"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "risk": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "mutation_level": {
+      "enum": [
+        "read-only",
+        "local-mutation",
+        "remote-mutation",
+        "repository-mutation",
+        "service-control",
+        "deployment",
+        "credential-use",
+        "external-communication",
+        "financial-action",
+        "destructive-operation"
+      ]
+    },
+    "unattended_safe": {
+      "type": "boolean"
+    },
+    "capabilities": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]+$"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "required": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "count",
+          "required"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "connectors": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "credentials": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "platforms": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "models": {
+      "type": "object",
+      "properties": {
+        "selection": {
+          "const": "capability-based"
+        },
+        "required": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "selection",
+        "required"
+      ],
+      "additionalProperties": false
+    },
+    "inputs": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "const": "object"
+        }
+      },
+      "additionalProperties": true
+    },
+    "outputs": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "const": "object"
+        }
+      },
+      "additionalProperties": true
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "enum": [
+              "read-only",
+              "local-mutation",
+              "remote-mutation",
+              "repository-mutation",
+              "service-control",
+              "deployment",
+              "credential-use",
+              "external-communication",
+              "financial-action",
+              "destructive-operation"
+            ]
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "kind",
+          "scope"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "timeout_seconds": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 86400
+    },
+    "cost_ceiling": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "on_unknown": {
+          "const": "BLOCK"
+        }
+      },
+      "required": [
+        "amount",
+        "currency",
+        "on_unknown"
+      ],
+      "additionalProperties": false
+    },
+    "approval": {
+      "type": "object",
+      "properties": {
+        "required": {
+          "type": "boolean"
+        },
+        "before": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "binding": {
+          "const": "job-version-digest-inputs-target-expiry"
+        }
+      },
+      "required": [
+        "required",
+        "before",
+        "binding"
+      ],
+      "additionalProperties": false
+    },
+    "concurrency": {
+      "type": "object",
+      "properties": {
+        "max_workers": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 64
+        },
+        "policy": {
+          "enum": [
+            "isolated-output",
+            "exclusive-target"
+          ]
+        }
+      },
+      "required": [
+        "max_workers",
+        "policy"
+      ],
+      "additionalProperties": false
+    },
+    "success_criteria": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "failure_criteria": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "required": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "max_age_seconds": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "redaction": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "required",
+        "max_age_seconds",
+        "redaction"
+      ],
+      "additionalProperties": false
+    },
+    "validators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "declarative-facts/v1"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "type",
+          "path"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "files": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "agent_control": {
+      "type": "object",
+      "properties": {
+        "minimum_version": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "integration_status": {
+          "enum": [
+            "IMPLEMENTED",
+            "RUNNABLE",
+            "REQUIRES_CONFIGURATION",
+            "REQUIRES_CONNECTOR",
+            "REQUIRES_CREDENTIAL",
+            "UNSUPPORTED",
+            "NOT_YET_QUALIFIED"
+          ]
+        }
+      },
+      "required": [
+        "minimum_version",
+        "integration_status"
+      ],
+      "additionalProperties": false
+    },
+    "qualification": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "const": "NOT_YET_QUALIFIED"
+        },
+        "expected_outcome": {
+          "enum": [
+            "COMPLETE",
+            "DEGRADED",
+            "BLOCKED",
+            "ESCALATED"
+          ]
+        },
+        "fixture_scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "status",
+        "expected_outcome",
+        "fixture_scope"
+      ],
+      "additionalProperties": false
+    },
+    "pattern": {
+      "enum": [
+        "Process Automation",
+        "Worker Augmentation",
+        "Enterprise Intelligence"
+      ]
+    }
+  },
+  "required": [
+    "spec_version",
+    "id",
+    "name",
+    "version",
+    "description",
+    "category",
+    "tags",
+    "common_job",
+    "provenance",
+    "risk",
+    "mutation_level",
+    "unattended_safe",
+    "capabilities",
+    "resources",
+    "connectors",
+    "credentials",
+    "platforms",
+    "models",
+    "inputs",
+    "outputs",
+    "permissions",
+    "timeout_seconds",
+    "cost_ceiling",
+    "approval",
+    "concurrency",
+    "success_criteria",
+    "failure_criteria",
+    "evidence",
+    "validators",
+    "files",
+    "agent_control",
+    "qualification",
+    "pattern"
+  ],
+  "additionalProperties": false
+}

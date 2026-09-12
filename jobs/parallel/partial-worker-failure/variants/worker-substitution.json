@@ -1,0 +1,41 @@
+{
+  "id": "worker-substitution",
+  "objective": "Worker Substitution",
+  "input": {
+    "scenario": "Worker A lost after checkpoint H1. Worker C has same required capabilities and approved authority. Assign only pending B."
+  },
+  "assertions": {
+    "outcome": "COMPLETE",
+    "facts": {
+      "substitute": "C",
+      "checkpoint": "H1",
+      "pending": [
+        "B"
+      ]
+    },
+    "allowed_actions": [],
+    "required_evidence": [
+      "fixture:input.json"
+    ]
+  },
+  "requirements": {
+    "capabilities": [
+      "evidence.report",
+      "workers.parallel",
+      "checkpoint"
+    ],
+    "connectors": [],
+    "credentials": [],
+    "permissions": [
+      {
+        "kind": "read-only",
+        "scope": "bound-inputs"
+      },
+      {
+        "kind": "local-mutation",
+        "scope": "run-output"
+      }
+    ]
+  },
+  "scope": "Independent scenario; requirements must be merged before assessment; no implicit authority"
+}

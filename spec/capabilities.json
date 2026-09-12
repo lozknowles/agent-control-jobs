@@ -1,0 +1,104 @@
+[
+  {
+    "id": "checkpoint",
+    "version": "1.0.0",
+    "description": "checkpoint adapter capability; cannot be inferred from installation alone",
+    "verification": "Require fresh target-specific adapter evidence; controller owns capability admission"
+  },
+  {
+    "id": "code.execute",
+    "version": "1.0.0",
+    "description": "code.execute adapter capability; cannot be inferred from installation alone",
+    "verification": "Require fresh target-specific adapter evidence; controller owns capability admission"
+  },
+  {
+    "id": "deploy",
+    "version": "1.0.0",
+    "description": "deploy adapter capability; cannot be inferred from installation alone",
+    "verification": "Require fresh target-specific adapter evidence; controller owns capability admission"
+  },
+  {
+    "id": "evidence.report",
+    "version": "1.0.0",
+    "description": "evidence.report adapter capability; cannot be inferred from installation alone",
+    "verification": "Require fresh target-specific adapter evidence; controller owns capability admission"
+  },
+  {
+    "id": "filesystem.delete",
+    "version": "1.0.0",
+    "description": "filesystem.delete adapter capability; cannot be inferred from installation alone",
+    "verification": "Require fresh target-specific adapter evidence; controller owns capability admission"
+  },
+  {
+    "id": "gpu.inspect",
+    "version": "1.0.0",
+    "description": "gpu.inspect adapter capability; cannot be inferred from installation alone",
+    "verification": "Require fresh target-specific adapter evidence; controller owns capability admission"
+  },
+  {
+    "id": "home-assistant.control",
+    "version": "1.0.0",
+    "description": "home-assistant.control adapter capability; cannot be inferred from installation alone",
+    "verification": "Require fresh target-specific adapter evidence; controller owns capability admission"
+  },
+  {
+    "id": "host.inspect",
+    "version": "1.0.0",
+    "description": "host.inspect adapter capability; cannot be inferred from installation alone",
+    "verification": "Require fresh target-specific adapter evidence; controller owns capability admission"
+  },
+  {
+    "id": "http.read",
+    "version": "1.0.0",
+    "description": "http.read adapter capability; cannot be inferred from installation alone",
+    "verification": "Require fresh target-specific adapter evidence; controller owns capability admission"
+  },
+  {
+    "id": "model.invoke",
+    "version": "1.0.0",
+    "description": "model.invoke adapter capability; cannot be inferred from installation alone",
+    "verification": "Require fresh target-specific adapter evidence; controller owns capability admission"
+  },
+  {
+    "id": "operator.pause",
+    "version": "1.0.0",
+    "description": "operator.pause adapter capability; cannot be inferred from installation alone",
+    "verification": "Require fresh target-specific adapter evidence; controller owns capability admission"
+  },
+  {
+    "id": "runtime.inspect",
+    "version": "1.0.0",
+    "description": "runtime.inspect adapter capability; cannot be inferred from installation alone",
+    "verification": "Require fresh target-specific adapter evidence; controller owns capability admission"
+  },
+  {
+    "id": "scheduler",
+    "version": "1.0.0",
+    "description": "scheduler adapter capability; cannot be inferred from installation alone",
+    "verification": "Require fresh target-specific adapter evidence; controller owns capability admission"
+  },
+  {
+    "id": "service.control",
+    "version": "1.0.0",
+    "description": "service.control adapter capability; cannot be inferred from installation alone",
+    "verification": "Require fresh target-specific adapter evidence; controller owns capability admission"
+  },
+  {
+    "id": "service.inspect",
+    "version": "1.0.0",
+    "description": "service.inspect adapter capability; cannot be inferred from installation alone",
+    "verification": "Require fresh target-specific adapter evidence; controller owns capability admission"
+  },
+  {
+    "id": "ssh.read",
+    "version": "1.0.0",
+    "description": "ssh.read adapter capability; cannot be inferred from installation alone",
+    "verification": "Require fresh target-specific adapter evidence; controller owns capability admission"
+  },
+  {
+    "id": "workers.parallel",
+    "version": "1.0.0",
+    "description": "workers.parallel adapter capability; cannot be inferred from installation alone",
+    "verification": "Require fresh target-specific adapter evidence; controller owns capability admission"
+  }
+]

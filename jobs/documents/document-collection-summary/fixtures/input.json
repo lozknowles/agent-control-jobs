@@ -1,0 +1,3 @@
+{
+  "scenario": "Validated policy v2 says expenses cap 50. Superseded v1 says 40. Draft v3 says 60. Use only validated current policy."
+}

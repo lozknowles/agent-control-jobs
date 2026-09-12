@@ -1,0 +1,11 @@
+{
+  "outcome": "ESCALATED",
+  "facts": {
+    "conflict": true,
+    "health": "unknown"
+  },
+  "allowed_actions": [],
+  "required_evidence": [
+    "fixture:input.json"
+  ]
+}

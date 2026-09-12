@@ -1,0 +1,3 @@
+{
+  "scenario": "DAG A and B independent; C depends on both. B fails. C must not start."
+}

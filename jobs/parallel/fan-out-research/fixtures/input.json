@@ -1,0 +1,3 @@
+{
+  "scenario": "Worker A finds source S1 cost=10; worker B finds S2 latency=20. Aggregate both, retain attribution."
+}

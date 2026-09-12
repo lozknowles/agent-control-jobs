@@ -1,0 +1,37 @@
+{
+  "id": "context-qualification",
+  "objective": "Context Qualification",
+  "input": {
+    "scenario": "Needle marker K7 found at 2048 tokens; 4096-token request timed out. Do not certify 4096."
+  },
+  "assertions": {
+    "outcome": "COMPLETE",
+    "facts": {
+      "qualified_tokens": 2048,
+      "unqualified_tokens": 4096
+    },
+    "allowed_actions": [],
+    "required_evidence": [
+      "fixture:input.json"
+    ]
+  },
+  "requirements": {
+    "capabilities": [
+      "evidence.report",
+      "model.invoke"
+    ],
+    "connectors": [],
+    "credentials": [],
+    "permissions": [
+      {
+        "kind": "read-only",
+        "scope": "bound-inputs"
+      },
+      {
+        "kind": "local-mutation",
+        "scope": "run-output"
+      }
+    ]
+  },
+  "scope": "Independent scenario; requirements must be merged before assessment; no implicit authority"
+}

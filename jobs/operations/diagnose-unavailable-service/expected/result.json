@@ -1,0 +1,11 @@
+{
+  "outcome": "COMPLETE",
+  "facts": {
+    "cause": "upstream-stopped",
+    "restart": false
+  },
+  "evidence": [
+    "fixture:input.json"
+  ],
+  "actions": []
+}

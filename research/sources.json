@@ -1,0 +1,79 @@
+[
+  {
+    "id": "dataiku",
+    "organisation": "Dataiku",
+    "url": "https://pages.dataiku.com/the-ultimate-guide-to-ai-agent-use-cases",
+    "date_accessed": "2026-09-12",
+    "limitations": "User-supplied 21-page PDF read on 2026-09-12. Illustrative architectures, not verified production deployments. Page 15 contains contradictory sales/billing text.",
+    "document": {
+      "title": "The ultimate guide to AI agent use cases",
+      "sha256": "c45c59b261e7ece67ff85b6601424aaea6770c68b0af38a76f4f93666e9a2cdc",
+      "pages": 21,
+      "publication_date": null,
+      "access": "user-supplied PDF; not redistributed"
+    }
+  },
+  {
+    "id": "github",
+    "organisation": "GitHub",
+    "url": "https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent",
+    "date_accessed": "2026-09-12",
+    "limitations": "Technical product documentation; describes supported workflows, not independent effectiveness evidence"
+  },
+  {
+    "id": "google",
+    "organisation": "Google Cloud",
+    "url": "https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders",
+    "date_accessed": "2026-09-12",
+    "limitations": "Vendor-reported customer catalogue, updated 2026-04-22; AI assistance is not necessarily autonomous execution"
+  },
+  {
+    "id": "microsoft",
+    "organisation": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/agents/adoption-patterns/pattern-workplace-it-services",
+    "date_accessed": "2026-09-12",
+    "limitations": "Published operating pattern and customer examples; page accessed, linked case studies not independently audited"
+  },
+  {
+    "id": "aws",
+    "organisation": "AWS",
+    "url": "https://aws.amazon.com/ai/generative-ai/use-cases/agent-assist/",
+    "date_accessed": "2026-09-12",
+    "limitations": "Contact-centre assistance; distinguish human assistance from autonomous agents"
+  },
+  {
+    "id": "anthropic-parallel",
+    "organisation": "Anthropic",
+    "url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+    "date_accessed": "2026-09-12",
+    "limitations": "Engineering account dated 2025-06-13; research fan-out and recovery"
+  },
+  {
+    "id": "anthropic-long",
+    "organisation": "Anthropic",
+    "url": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+    "date_accessed": "2026-09-12",
+    "limitations": "Engineering account dated 2025-11-26; persistent progress across coding sessions"
+  },
+  {
+    "id": "ha",
+    "organisation": "Home Assistant",
+    "url": "https://developers.home-assistant.io/docs/core/llm/",
+    "date_accessed": "2026-09-12",
+    "limitations": "Technical integration documentation; exposed entity control, no administrative tasks"
+  },
+  {
+    "id": "ollama",
+    "organisation": "Ollama",
+    "url": "https://docs.ollama.com/api/tags",
+    "date_accessed": "2026-09-12",
+    "limitations": "Technical API documentation; model inventory is a capability, not an end-user deployment case"
+  },
+  {
+    "id": "garak",
+    "organisation": "NVIDIA / garak",
+    "url": "https://github.com/NVIDIA/garak",
+    "date_accessed": "2026-09-12",
+    "limitations": "Open-source vulnerability assessment project; failure probes, not an autonomous business deployment"
+  }
+]

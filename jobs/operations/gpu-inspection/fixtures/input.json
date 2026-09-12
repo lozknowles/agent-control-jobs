@@ -1,0 +1,3 @@
+{
+  "scenario": "GPU total 8192 MiB, allocated 7168 MiB. Process renderer-worker uses 6144 MiB and background-worker uses 1024 MiB. Requested additional allocation 2048 MiB. Explain the main contributor without stopping processes."
+}

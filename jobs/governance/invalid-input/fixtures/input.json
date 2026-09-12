@@ -1,0 +1,3 @@
+{
+  "scenario": "Input amount is NaN text but schema requires finite number. Stop before processing."
+}
