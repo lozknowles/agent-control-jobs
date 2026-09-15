@@ -1,0 +1,381 @@
+{
+  "schema": "agent-control-lab.benchmark-report/v1",
+  "generatedAt": "2026-09-15T04:58:12.643941+00:00",
+  "title": "Quadro P5000 × Qwen3.8-27B — 32K configuration comparison",
+  "qualification": {
+    "id": "full-gpu-qwen-20260915",
+    "completedAt": "2026-09-15T04:58:12.643941+00:00",
+    "agentControlSourceCommit": "98e0f69453182bad1bf52469a7bd34dd43218118",
+    "agentControlSourceFingerprint": "d071480ba56a2d9427b14c412ddbecd82b484b0c781d6bd4f406434ab58f283b",
+    "controllerSha256": "5c223e1f6f89295768e4d3d244fab997280845c5683e423bb3b40a649c492d94",
+    "developmentValidation": {
+      "tests": 1598,
+      "passed": 1598,
+      "failed": 0,
+      "skipped": 0,
+      "logSha256": "2bc37e67afdcf156fe298c3a9db8b322798be870cff9cc3f72bba50c33e05235",
+      "startedAt": "2026-09-15T04:18:36.987552+00:00",
+      "endedAt": "2026-09-15T04:21:42.403913+00:00"
+    },
+    "sourceFiles": [
+      {
+        "path": "experiments/baseline-full-gpu-32k/result.json",
+        "sha256": "57a2a70a69dee49b4193b3f45aa22adf1ef56d3a4fdb8c18334e4fecb550e787",
+        "sizeBytes": 253784
+      },
+      {
+        "path": "experiments/baseline-canonical-32k/result.json",
+        "sha256": "ec9687e481ef05aa7dd6f63c3f9641747bf035997c834a48e4a91fdffa54bccd",
+        "sizeBytes": 285967
+      },
+      {
+        "path": "experiments/new-runtime-q4-mtp8/result.json",
+        "sha256": "5e8b4622f5a5f84ae53fc6f2ab8166a39126b7e62b1bda7061515e8888eeb318",
+        "sizeBytes": 545001
+      },
+      {
+        "path": "parcels.json",
+        "sha256": "ce97638134cd3ada68876cc5fa424a67e323b87c3554a15ac2ec662b4b37f2a2",
+        "sizeBytes": 3531131
+      },
+      {
+        "path": "artifacts/artifacts.json",
+        "sha256": "6284c2706366a60f5827a2235e3f38df57ab896cd19af2c7d01e6850543744e7",
+        "sizeBytes": 439157
+      },
+      {
+        "path": "discovery.json",
+        "sha256": "38470ef7a4bfe0727927e8b4b40cb5566cc4ce1f377307d5d43bc69d32c49ac5",
+        "sizeBytes": 111080
+      },
+      {
+        "path": "development-qualification.json",
+        "sha256": "a71144775b63ca804a95fbe739b0b08e67e0ceb478e6528b7d10bb616f98c6dc",
+        "sizeBytes": 178707
+      },
+      {
+        "path": "artifacts/objects/artifact-a49e11a5-9002-40e8-abcf-18ab33225ca4.json",
+        "sha256": "b786fff8cfd20b82aa7b07ec0f047da722a129dd08d6c7742119b0c4202086f4",
+        "sizeBytes": 617
+      }
+    ]
+  },
+  "hardware": {
+    "node": "hpubuntu",
+    "accelerator": "NVIDIA Quadro P5000",
+    "vramMiB": 16384,
+    "driver": "580.173.02",
+    "health": "HEALTHY",
+    "discoveryId": "discovery-a7f951b7-93cc-4b13-8b0b-fc4ac23b3d2f",
+    "discoveredAt": "2026-09-15T05:39:39.275Z"
+  },
+  "model": {
+    "identity": "Qwen3.8-27B-Q3_K_M",
+    "sha256": "7f3b845b563888ec3abc269474cf744bf703a7ce8766dbb7f696c63975facfd7",
+    "baselineIdentityAuthority": "Resolved from the matching immutable model SHA-256 in the optimised result"
+  },
+  "comparison": {
+    "fixedFields": [
+      "hardware",
+      "model SHA-256",
+      "32,768-token context",
+      "2,048-token batch",
+      "512-token micro-batch",
+      "120-row workload",
+      "2,224 input tokens per invocation",
+      "three repetitions"
+    ],
+    "changedFields": [
+      "llama.cpp build",
+      "KV cache format (f16 to q4_0)",
+      "draft-MTP (disabled to maximum 8)",
+      "output-token ceiling (128 to 512)"
+    ],
+    "interpretation": "This is an observed configuration-level comparison. It does not attribute the measured change to any single optimisation.",
+    "runs": [
+      {
+        "id": "baseline-full-gpu-32k",
+        "label": "Baseline",
+        "status": "SUCCEEDED",
+        "workParcelId": "parcel-social-a026f6f04594ac773d4fc12c5e08528e56f4eae2f59501e03206ec4cb0551dc4",
+        "jobRunId": "run-150ebd09-a8cd-4679-9971-4229ac219a7f",
+        "workParcelStatus": "SUCCEEDED",
+        "independentVerification": "PASS",
+        "startedAt": "2026-09-15T01:31:22.107509+00:00",
+        "endedAt": "2026-09-15T01:33:27.589383+00:00",
+        "bootSeconds": 6.008960074977949,
+        "runtime": {
+          "identity": "llama.cpp",
+          "version": "9371-22d9bc441",
+          "sha256": "3f1000482d759661cadb1dc9b59f6292f52408ee0d2906298fa001837517fb4e"
+        },
+        "configuration": {
+          "contextTokens": 32768,
+          "batchTokens": 2048,
+          "microBatchTokens": 512,
+          "flashAttention": "auto",
+          "kvCache": "f16",
+          "repetitions": 3,
+          "outputTokenLimit": 128,
+          "workloadRows": 120,
+          "speculativeMode": "disabled",
+          "speculativeDraftMaximum": null
+        },
+        "invocations": [
+          {
+            "id": "baseline-full-gpu-32k-0",
+            "status": "SUCCEEDED",
+            "inputTokens": 2224,
+            "cachedInputTokens": 0,
+            "outputTokens": 128,
+            "totalTokens": 2352,
+            "promptTokensPerSecond": 117.86485691821133,
+            "generationTokensPerSecond": 6.282200572406631,
+            "timeToFirstTokenSeconds": 18.902472132002003,
+            "elapsedSeconds": 39.27788867498748,
+            "draftTokens": null,
+            "acceptedDraftTokens": null
+          },
+          {
+            "id": "baseline-full-gpu-32k-1",
+            "status": "SUCCEEDED",
+            "inputTokens": 2224,
+            "cachedInputTokens": 0,
+            "outputTokens": 128,
+            "totalTokens": 2352,
+            "promptTokensPerSecond": 115.51012157440296,
+            "generationTokensPerSecond": 6.261901281517665,
+            "timeToFirstTokenSeconds": 19.306772114010528,
+            "elapsedSeconds": 39.74797789903823,
+            "draftTokens": null,
+            "acceptedDraftTokens": null
+          },
+          {
+            "id": "baseline-full-gpu-32k-2",
+            "status": "SUCCEEDED",
+            "inputTokens": 2224,
+            "cachedInputTokens": 0,
+            "outputTokens": 128,
+            "totalTokens": 2352,
+            "promptTokensPerSecond": 114.58053246871744,
+            "generationTokensPerSecond": 6.235047758760936,
+            "timeToFirstTokenSeconds": 19.442720085964538,
+            "elapsedSeconds": 39.97174158098642,
+            "draftTokens": null,
+            "acceptedDraftTokens": null
+          }
+        ],
+        "summary": {
+          "invocations": 3,
+          "inputTokens": 6672,
+          "cachedInputTokens": 0,
+          "outputTokens": 384,
+          "totalTokens": 7056,
+          "meanPromptTokensPerSecond": 115.9851703204439,
+          "meanGenerationTokensPerSecond": 6.259716537561744,
+          "meanTimeToFirstTokenSeconds": 19.217321443992358,
+          "meanElapsedSeconds": 39.665869385004044
+        }
+      },
+      {
+        "id": "new-runtime-q4-mtp8",
+        "label": "Optimised configuration",
+        "status": "SUCCEEDED",
+        "workParcelId": "parcel-social-6f157bf39f3056436cab61e13e6b1d91155d9205fb8052dc9fd26dc94062c2bb",
+        "jobRunId": "run-18f3fa23-7b5d-4a45-9004-9e9e3b9d3008",
+        "workParcelStatus": "SUCCEEDED",
+        "independentVerification": "PASS",
+        "startedAt": "2026-09-15T04:55:35.365683+00:00",
+        "endedAt": "2026-09-15T04:58:12.643941+00:00",
+        "bootSeconds": 5.123657151008956,
+        "runtime": {
+          "identity": "llama.cpp",
+          "version": "9986-91c631b21",
+          "sha256": "91a89a9b96f2968c3e851fe912fac7a22966f376b8168eb30310ee4a5162f6ff"
+        },
+        "configuration": {
+          "contextTokens": 32768,
+          "batchTokens": 2048,
+          "microBatchTokens": 512,
+          "flashAttention": "auto",
+          "kvCache": "q4_0",
+          "repetitions": 3,
+          "outputTokenLimit": 512,
+          "workloadRows": 120,
+          "speculativeMode": "draft-mtp",
+          "speculativeDraftMaximum": 8
+        },
+        "invocations": [
+          {
+            "id": "new-runtime-q4-mtp8-0",
+            "status": "SUCCEEDED",
+            "inputTokens": 2224,
+            "cachedInputTokens": 0,
+            "outputTokens": 292,
+            "totalTokens": 2516,
+            "promptTokensPerSecond": 110.9260736075299,
+            "generationTokensPerSecond": 16.423040423345483,
+            "timeToFirstTokenSeconds": 20.099732497008517,
+            "elapsedSeconds": 37.8803341150051,
+            "draftTokens": 376,
+            "acceptedDraftTokens": 245
+          },
+          {
+            "id": "new-runtime-q4-mtp8-1",
+            "status": "SUCCEEDED",
+            "inputTokens": 2224,
+            "cachedInputTokens": 0,
+            "outputTokens": 292,
+            "totalTokens": 2516,
+            "promptTokensPerSecond": 110.08085745860423,
+            "generationTokensPerSecond": 15.91841485297136,
+            "timeToFirstTokenSeconds": 20.233684320002794,
+            "elapsedSeconds": 38.57767382194288,
+            "draftTokens": 384,
+            "acceptedDraftTokens": 244
+          },
+          {
+            "id": "new-runtime-q4-mtp8-2",
+            "status": "SUCCEEDED",
+            "inputTokens": 2224,
+            "cachedInputTokens": 0,
+            "outputTokens": 292,
+            "totalTokens": 2516,
+            "promptTokensPerSecond": 108.92357355911595,
+            "generationTokensPerSecond": 15.845475788357188,
+            "timeToFirstTokenSeconds": 20.448881426942535,
+            "elapsedSeconds": 38.87743321689777,
+            "draftTokens": 384,
+            "acceptedDraftTokens": 244
+          }
+        ],
+        "summary": {
+          "invocations": 3,
+          "inputTokens": 6672,
+          "cachedInputTokens": 0,
+          "outputTokens": 876,
+          "totalTokens": 7548,
+          "meanPromptTokensPerSecond": 109.97683487508336,
+          "meanGenerationTokensPerSecond": 16.06231035489134,
+          "meanTimeToFirstTokenSeconds": 20.26076608131795,
+          "meanElapsedSeconds": 38.445147051281914
+        }
+      }
+    ],
+    "measuredResult": {
+      "baselineGenerationTokensPerSecond": 6.259716537561744,
+      "optimisedGenerationTokensPerSecond": 16.06231035489134,
+      "generationThroughputSpeedup": 2.5659804654905125,
+      "generationThroughputIncreasePercent": 156.59804654905125
+    }
+  },
+  "evidence": {
+    "baselineArtifacts": [
+      {
+        "id": "artifact-94f0fbe1-4034-4fcc-98da-418f728378b6",
+        "name": "commissioned-result",
+        "runId": "run-150ebd09-a8cd-4679-9971-4229ac219a7f",
+        "stepId": "observe",
+        "type": "json",
+        "schema": "agent-control.attempt-evidence/v1",
+        "version": "1.0.0",
+        "sha256": "f1f739193a3fb0d630756f3916d9b3ce39464eec3434f709de4ad564d4a0d145",
+        "sizeBytes": 186127,
+        "createdAt": "2026-09-15T01:33:27.626Z"
+      },
+      {
+        "id": "artifact-4e770447-3c8a-4010-a827-1a1abe6f4f54",
+        "name": "observation",
+        "runId": "run-150ebd09-a8cd-4679-9971-4229ac219a7f",
+        "stepId": "observe",
+        "type": "application/json",
+        "schema": "agent-control.experiment-observation/v1",
+        "version": "1.0.0",
+        "sha256": "eeca02c381843024353aa19cf7276eaee0f61a6edafe1dd0536fd792ba93e462",
+        "sizeBytes": 186269,
+        "createdAt": "2026-09-15T01:33:27.636Z"
+      }
+    ],
+    "optimisedArtifacts": [
+      {
+        "id": "artifact-a49e11a5-9002-40e8-abcf-18ab33225ca4",
+        "name": "experiment-provenance",
+        "runId": "run-18f3fa23-7b5d-4a45-9004-9e9e3b9d3008",
+        "stepId": "observe",
+        "type": "json",
+        "schema": "agent-control.attempt-evidence/v1",
+        "version": "1.0.0",
+        "sha256": "b786fff8cfd20b82aa7b07ec0f047da722a129dd08d6c7742119b0c4202086f4",
+        "sizeBytes": 617,
+        "createdAt": "2026-09-15T04:55:35.026Z"
+      },
+      {
+        "id": "artifact-14314dc1-e19a-4ed5-ba3f-6d991d0ac294",
+        "name": "estate-discovery",
+        "runId": "run-18f3fa23-7b5d-4a45-9004-9e9e3b9d3008",
+        "stepId": "observe",
+        "type": "json",
+        "schema": "agent-control.attempt-evidence/v1",
+        "version": "1.0.0",
+        "sha256": "3faf79d0ca9a9dd22e13db62f622573c89edaf0ba0678e8421d8047f45417e4c",
+        "sizeBytes": 3976,
+        "createdAt": "2026-09-15T04:55:35.117Z"
+      },
+      {
+        "id": "artifact-82bd242d-ab38-4c61-bb6d-63d493b8d0c2",
+        "name": "commissioned-script",
+        "runId": "run-18f3fa23-7b5d-4a45-9004-9e9e3b9d3008",
+        "stepId": "observe",
+        "type": "json",
+        "schema": "agent-control.attempt-evidence/v1",
+        "version": "1.0.0",
+        "sha256": "88011a2a346d0b9a3eae8743da09a888abb1fae3d4917b3b38e9c34370400102",
+        "sizeBytes": 13569,
+        "createdAt": "2026-09-15T04:55:35.189Z"
+      },
+      {
+        "id": "artifact-bb727c79-d879-43ad-b8b2-1fdab8e8bd9d",
+        "name": "commissioned-result",
+        "runId": "run-18f3fa23-7b5d-4a45-9004-9e9e3b9d3008",
+        "stepId": "observe",
+        "type": "json",
+        "schema": "agent-control.attempt-evidence/v1",
+        "version": "1.0.0",
+        "sha256": "9e7722ac4765314add3225b13e56f06a587f28067cbd3c94a84fde52456f5ed5",
+        "sizeBytes": 398949,
+        "createdAt": "2026-09-15T04:58:12.685Z"
+      },
+      {
+        "id": "artifact-45a63112-c548-4da0-8c45-032cc082de24",
+        "name": "physical-inference-measurement",
+        "runId": "run-18f3fa23-7b5d-4a45-9004-9e9e3b9d3008",
+        "stepId": "observe",
+        "type": "json",
+        "schema": "agent-control.attempt-evidence/v1",
+        "version": "1.0.0",
+        "sha256": "49085ea95100ed6efeef20e96303fcf006027c500dab7b147133b286485aa9fe",
+        "sizeBytes": 564413,
+        "createdAt": "2026-09-15T04:58:12.760Z"
+      },
+      {
+        "id": "artifact-fa80c78f-237e-4750-8352-2c04a83c6abd",
+        "name": "observation",
+        "runId": "run-18f3fa23-7b5d-4a45-9004-9e9e3b9d3008",
+        "stepId": "observe",
+        "type": "application/json",
+        "schema": "agent-control.experiment-observation/v1",
+        "version": "1.0.0",
+        "sha256": "3b8385f36c4f2961fbe1be88046719437756e1e0570de5d22689ba32c1880fc5",
+        "sizeBytes": 996367,
+        "createdAt": "2026-09-15T04:58:12.889Z"
+      }
+    ]
+  },
+  "claims": {
+    "physicalHardware": true,
+    "governedWorkParcels": true,
+    "independentVerification": true,
+    "monetarySaving": "NOT_CLAIMED",
+    "causalAttributionToSingleOptimisation": "NOT_CLAIMED"
+  }
+}

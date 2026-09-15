@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Control Lab — P5000 × Qwen3.8-27B report</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #07131f; color: #eaf5fb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: radial-gradient(circle at top, #123049, #07131f 54rem); }
+    main { width: min(1120px, calc(100% - 2rem)); margin: 0 auto; padding: 4rem 0 6rem; }
+    .eyebrow { color: #48e0a4; letter-spacing: .12em; text-transform: uppercase; font-weight: 800; }
+    h1 { font-size: clamp(2.25rem, 6vw, 4.8rem); line-height: 1; margin: .5rem 0 1rem; }
+    .lead { color: #b2c9d8; font-size: 1.2rem; max-width: 72ch; }
+    .result { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
+    .card, section { background: rgba(9, 29, 44, .88); border: 1px solid #24465d; border-radius: 18px; padding: 1.25rem; }
+    .value { color: #4ee3a5; display: block; font-size: 2rem; font-weight: 850; }
+    section { margin-top: 1.25rem; }
+    img { display: block; width: 100%; height: auto; border-radius: 18px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: .8rem; border-bottom: 1px solid #29475a; text-align: left; }
+    th { color: #c7dce8; }
+    code { overflow-wrap: anywhere; color: #80d5ff; }
+    .note { border-left: 4px solid #f2b64c; }
+    a { color: #70d4ff; }
+    @media (max-width: 720px) { main { padding-top: 2rem; } .table-wrap { overflow-x: auto; } }
+  </style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Agent Control Lab · Physical benchmark</p>
+  <h1>Quadro P5000 × Qwen3.8-27B</h1>
+  <p class="lead">Two real, governed 32K configurations on the same hardware and immutable model. Every invocation completed and the Work Parcels passed independent verification.</p>
+  <div class="result">
+    <div class="card"><span class="value">6.26</span>baseline generated tok/s</div>
+    <div class="card"><span class="value">16.06</span>optimised generated tok/s</div>
+    <div class="card"><span class="value">2.57×</span>measured throughput speedup</div>
+  </div>
+  <img src="../../assets/benchmarks/p5000-qwen3.8-27b-generation-throughput.svg" alt="Bar chart comparing baseline and optimised generation throughput">
+  <section>
+    <h2>Measured comparison</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Configuration</th><th>llama.cpp</th><th>KV</th><th>Prompt tok/s</th><th>Generation tok/s</th><th>TTFT</th><th>Verification</th></tr></thead>
+      <tbody><tr>
+      <th scope="row">Baseline</th>
+      <td>9371-22d9bc441</td>
+      <td>f16</td>
+      <td>115.99</td>
+      <td><strong>6.26</strong></td>
+      <td>19.22 s</td>
+      <td>PASS</td>
+    </tr>
+<tr>
+      <th scope="row">Optimised configuration</th>
+      <td>9986-91c631b21</td>
+      <td>q4_0</td>
+      <td>109.98</td>
+      <td><strong>16.06</strong></td>
+      <td>20.26 s</td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table></div>
+  </section>
+  <section class="note">
+    <h2>Interpretation boundary</h2>
+    <p>This is an observed configuration-level comparison. It does not attribute the measured change to any single optimisation. Runtime build, KV format, draft-MTP and output ceiling changed. No single-change or monetary-saving claim is made.</p>
+  </section>
+  <section>
+    <h2>Evidence</h2>
+    <p><strong>Qualification:</strong> <code>full-gpu-qwen-20260915</code><br>
+       <strong>Agent Control commit:</strong> <code>98e0f69453182bad1bf52469a7bd34dd43218118</code><br>
+       <strong>Model SHA-256:</strong> <code>7f3b845b563888ec3abc269474cf744bf703a7ce8766dbb7f696c63975facfd7</code></p>
+    <p><a href="report.md">Markdown</a> · <a href="report.json">JSON</a> · <a href="report.csv">CSV</a> · <a href="source-data.json">privacy-safe source projection</a> · <a href="manifest.json">manifest</a></p>
+    <p><strong>Evidence is authoritative. Reports and charts are projections over evidence.</strong></p>
+  </section>
+</main>
+</body>
+</html>

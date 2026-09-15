@@ -1,0 +1,41 @@
+{
+  "schema": "agent-control-lab.report-manifest/v1",
+  "generatedAt": "2026-09-15T04:58:12.643941+00:00",
+  "source": {
+    "path": "reports/p5000-qwen3.8-27b/source-data.json",
+    "sha256": "633fd6e64e5ce8481fb312f8447069fc07cf54e69af47ec07ea28f60fa75ea95",
+    "sizeBytes": 12859
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "cc675f91fbdf56f7023cec14d495b4a920ed235aeb57d2a651729aec04057eed",
+      "sizeBytes": 11905
+    },
+    {
+      "path": "assets/benchmarks/p5000-qwen3.8-27b-generation-throughput.svg",
+      "sha256": "1f75ed532d449c72c12314fd6954127458fcaa4635e1cbbbb6d819fa437bc5dc",
+      "sizeBytes": 2726
+    },
+    {
+      "path": "reports/p5000-qwen3.8-27b/report.md",
+      "sha256": "448bbff04c70419b3de7e6b79c2463cf185f4ae061508bfd1fe8c4d46570a78b",
+      "sizeBytes": 3652
+    },
+    {
+      "path": "reports/p5000-qwen3.8-27b/report.json",
+      "sha256": "46aecf0265a92466a84881d56697ec980cfb4349840d425db03a487805a9def4",
+      "sizeBytes": 14309
+    },
+    {
+      "path": "reports/p5000-qwen3.8-27b/report.csv",
+      "sha256": "6c020ce38c7140091644ff63fb7eece3d7576daba928d15afa66dd98d9954e8e",
+      "sizeBytes": 2780
+    },
+    {
+      "path": "reports/p5000-qwen3.8-27b/report.html",
+      "sha256": "31a19e546edb62c28b0d2a8c58a160ddf96d10fb7bbd10b54b5ab46b5f0301b7",
+      "sizeBytes": 4136
+    }
+  ]
+}
