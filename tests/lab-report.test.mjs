@@ -26,7 +26,24 @@ test("example comparison is physically successful and independently verified", (
   const source = JSON.parse(read("reports/p5000-qwen3.8-27b/source-data.json"));
   const report = JSON.parse(read("reports/p5000-qwen3.8-27b/report.json"));
   assert.equal(source.comparison.runs.length, 2);
-  assert.equal(source.hardware.accelerator, "NVIDIA Quadro P5000");
+  assert.deepEqual(Object.keys(source.hardware).sort(), [
+    "accelerator",
+    "cudaVersion",
+    "memoryGiB",
+    "operatingSystem",
+    "processor",
+    "system",
+    "vramMiB",
+  ]);
+  assert.deepEqual(source.hardware, {
+    system: "HP ZBook 17 G4 workstation",
+    processor: "Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz",
+    memoryGiB: 64,
+    accelerator: "NVIDIA Quadro P5000",
+    vramMiB: 16384,
+    operatingSystem: "Ubuntu 24.04.5 LTS",
+    cudaVersion: "13.0 (driver-reported compatibility)",
+  });
   assert.equal(source.model.identity, "Qwen3.8-27B-Q3_K_M");
   assert.ok(source.comparison.runs.every((run) => run.status === "SUCCEEDED"));
   assert.ok(
@@ -80,6 +97,7 @@ test("public benchmark projection excludes private paths, addresses and credenti
     /\/home\//,
     /[A-Za-z]:\\/,
     /100\.\d+\.\d+\.\d+/,
+    /"(?:host|hostname|node|nodeId|machineId|username|networkInterfaces|ipAddress|privateAddress|endpoint)"\s*:/i,
     /-----BEGIN [A-Z ]*PRIVATE KEY-----/,
     /\bgh[pousr]_[A-Za-z0-9]{30,}\b/,
     /\bsk-(?:proj-)?[A-Za-z0-9_-]{32,}\b/,
