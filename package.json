@@ -1,7 +1,7 @@
 {
   "name": "agent-control-jobs",
   "version": "0.1.0",
-  "description": "Governed real-world agent jobs and reproducible qualification workloads",
+  "description": "Reproducible Agent Control benchmarks, experiments, governed jobs, API examples and evidence-backed reports",
   "type": "module",
   "license": "MIT",
   "engines": {
@@ -14,7 +14,9 @@
     "test": "node --test tests/*.test.mjs",
     "validate": "node tools/cli.mjs validate",
     "catalogue": "node tools/cli.mjs catalogue",
-    "check": "npm run validate && node tools/cli.mjs catalogue --check && node tools/check-content.mjs && npm test"
+    "benchmark:example": "node tools/generate-example-benchmark.mjs",
+    "benchmark:example:import": "node tools/import-example-benchmark.mjs",
+    "check": "npm run validate && node tools/cli.mjs catalogue --check && npm run benchmark:example -- --check && node tools/check-content.mjs && npm test"
   },
   "dependencies": {
     "ajv": "8.20.0",
