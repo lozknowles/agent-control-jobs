@@ -24,7 +24,7 @@ Want to know how fast a model is on your GPU, how much context really fits, whet
 ## Example benchmark: Quadro P5000 × Qwen3.8-27B
 
 <!-- BEGIN GENERATED EXAMPLE BENCHMARK -->
-This first worked example is a real physical qualification on **hpubuntu**, using an **NVIDIA Quadro P5000 (16 GiB)**, **llama.cpp**, and the immutable **Qwen3.8-27B-Q3_K_M** model at **32K context**. Both configurations ran 3 times through successful Agent Control Work Parcels and passed independent verification.
+This first worked example is a real physical qualification on an **HP ZBook 17 G4 workstation** with an **Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz**, **64 GiB RAM**, **NVIDIA Quadro P5000 (16 GiB)**, **Ubuntu 24.04.5 LTS**, and **CUDA 13.0 (driver-reported compatibility)**. It uses **llama.cpp** and the immutable **Qwen3.8-27B-Q3_K_M** model at **32K context**. Both configurations ran 3 times through successful Agent Control Work Parcels and passed independent verification.
 
 ![Measured baseline versus optimised Qwen3.8-27B generation throughput on a Quadro P5000](assets/benchmarks/p5000-qwen3.8-27b-generation-throughput.svg)
 

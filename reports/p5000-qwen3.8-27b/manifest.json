@@ -3,14 +3,14 @@
   "generatedAt": "2026-09-15T04:58:12.643941+00:00",
   "source": {
     "path": "reports/p5000-qwen3.8-27b/source-data.json",
-    "sha256": "633fd6e64e5ce8481fb312f8447069fc07cf54e69af47ec07ea28f60fa75ea95",
-    "sizeBytes": 12859
+    "sha256": "b69b038ee466d68d8b4bf0da260d487b38db99aca7b4554f304e2845093e1a94",
+    "sizeBytes": 12896
   },
   "files": [
     {
       "path": "README.md",
-      "sha256": "cc675f91fbdf56f7023cec14d495b4a920ed235aeb57d2a651729aec04057eed",
-      "sizeBytes": 11905
+      "sha256": "3a114fef34120efc6c480f832326198382d117577fd8575fb2e77fa7ab758947",
+      "sizeBytes": 12069
     },
     {
       "path": "assets/benchmarks/p5000-qwen3.8-27b-generation-throughput.svg",
@@ -24,8 +24,8 @@
     },
     {
       "path": "reports/p5000-qwen3.8-27b/report.json",
-      "sha256": "46aecf0265a92466a84881d56697ec980cfb4349840d425db03a487805a9def4",
-      "sizeBytes": 14309
+      "sha256": "98cda986406ed18a5232ab855f10a6921ab7615cb1289a7911ad0fce7b08cdd7",
+      "sizeBytes": 14346
     },
     {
       "path": "reports/p5000-qwen3.8-27b/report.csv",

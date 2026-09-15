@@ -14,7 +14,7 @@ The example records both fixed and changed fields. It reports a configuration-le
 
 ## Evidence and report generation
 
-The retained Agent Control evidence is authoritative. The committed [source projection](../reports/p5000-qwen3.8-27b/source-data.json) is a bounded, privacy-safe subset that keeps identities, measurements, hashes and verification state while excluding raw prompts, outputs, machine paths, private addresses and credentials.
+The retained Agent Control evidence is authoritative. The committed [source projection](../reports/p5000-qwen3.8-27b/source-data.json) is a bounded, privacy-safe subset that keeps benchmark identities, measurements, hashes and verification state while excluding raw prompts, outputs, internal hostnames and node IDs, machine paths, private addresses and credentials. Public hardware identity is an operator-reviewed device profile containing only the system class/model, processor, RAM, GPU/VRAM, operating-system version and accelerator-runtime version required to interpret the result.
 
 To verify that the chart and all report formats match that source:
 

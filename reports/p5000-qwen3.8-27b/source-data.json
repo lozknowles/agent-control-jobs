@@ -59,13 +59,13 @@
     ]
   },
   "hardware": {
-    "node": "hpubuntu",
+    "system": "HP ZBook 17 G4 workstation",
+    "processor": "Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz",
+    "memoryGiB": 64,
     "accelerator": "NVIDIA Quadro P5000",
     "vramMiB": 16384,
-    "driver": "580.173.02",
-    "health": "HEALTHY",
-    "discoveryId": "discovery-a7f951b7-93cc-4b13-8b0b-fc4ac23b3d2f",
-    "discoveredAt": "2026-09-15T05:39:39.275Z"
+    "operatingSystem": "Ubuntu 24.04.5 LTS",
+    "cudaVersion": "13.0 (driver-reported compatibility)"
   },
   "model": {
     "identity": "Qwen3.8-27B-Q3_K_M",

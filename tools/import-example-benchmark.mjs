@@ -10,6 +10,12 @@ const OUTPUT = path.join(
   "reports/p5000-qwen3.8-27b/source-data.json",
 );
 const MAX_SOURCE_BYTES = 64 * 1024 * 1024;
+const PUBLIC_HARDWARE_PROFILE = Object.freeze({
+  system: "HP ZBook 17 G4 workstation",
+  memoryGiB: 64,
+  operatingSystem: "Ubuntu 24.04.5 LTS",
+  cudaVersion: "13.0 (driver-reported compatibility)",
+});
 
 function fail(message) {
   throw new Error(`benchmark_import_failed: ${message}`);
@@ -230,10 +236,23 @@ const latestScan = scans.at(-1);
 const gpu = latestScan?.items.find(
   (item) => item.kind === "GPU" && item.label === "Quadro P5000",
 );
-const machine = latestScan?.items.find(
-  (item) => item.kind === "MACHINE" && item.label === "hpubuntu",
+const machines =
+  latestScan?.items.filter(
+    (item) => item.kind === "MACHINE" && item.health === "HEALTHY",
+  ) ?? [];
+assert(
+  gpu?.health === "HEALTHY" && machines.length === 1,
+  "hardware_missing_or_ambiguous",
 );
-assert(gpu?.health === "HEALTHY" && machine?.health === "HEALTHY", "hardware_missing");
+const [machine] = machines;
+assert(
+  typeof machine.attributes?.cpuModel === "string" &&
+    machine.attributes.cpuModel.length > 0 &&
+    Number.isFinite(machine.attributes.totalMemoryBytes) &&
+    machine.attributes.totalMemoryBytes >= 60 * 1024 ** 3 &&
+    machine.attributes.totalMemoryBytes <= 64 * 1024 ** 3,
+  "hardware_profile_mismatch",
+);
 assert(
   development.value.exitCode === 0 &&
     development.value.fullSuiteExecuted === true &&
@@ -299,13 +318,13 @@ const output = {
     ],
   },
   hardware: {
-    node: machine.label,
+    system: PUBLIC_HARDWARE_PROFILE.system,
+    processor: machine.attributes.cpuModel,
+    memoryGiB: PUBLIC_HARDWARE_PROFILE.memoryGiB,
     accelerator: `NVIDIA ${gpu.label}`,
     vramMiB: gpu.attributes.vramMiB,
-    driver: gpu.attributes.driver,
-    health: gpu.health,
-    discoveryId: latestScan.id,
-    discoveredAt: latestScan.completedAt,
+    operatingSystem: PUBLIC_HARDWARE_PROFILE.operatingSystem,
+    cudaVersion: PUBLIC_HARDWARE_PROFILE.cudaVersion,
   },
   model: {
     identity: optimised.value.model,
@@ -342,7 +361,7 @@ const output = {
 
 const outputText = `${JSON.stringify(output, null, 2)}\n`;
 if (
-  /(?:\/fast\/|\/home\/|[A-Za-z]:\\|100\.\d+\.\d+\.\d+|-----BEGIN|ghp_|sk-)/.test(
+  /(?:\/fast\/|\/home\/|[A-Za-z]:\\|100\.\d+\.\d+\.\d+|"(?:host|hostname|node|nodeId|machineId|username|networkInterfaces|ipAddress|privateAddress|endpoint)"\s*:|-----BEGIN|ghp_|sk-)/i.test(
     outputText,
   )
 )

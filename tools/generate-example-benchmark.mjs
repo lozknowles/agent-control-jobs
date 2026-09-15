@@ -95,9 +95,21 @@ function assertSource(source) {
   if (source.comparison.runs[0].runtime.sha256 === source.comparison.runs[1].runtime.sha256)
     fail("comparison_runtime_not_changed");
   if (!/^[a-f0-9]{64}$/.test(source.model.sha256)) fail("invalid_model_hash");
+  const hardwareKeys = Object.keys(source.hardware ?? {}).sort();
+  const permittedHardwareKeys = [
+    "accelerator",
+    "cudaVersion",
+    "memoryGiB",
+    "operatingSystem",
+    "processor",
+    "system",
+    "vramMiB",
+  ].sort();
+  if (JSON.stringify(hardwareKeys) !== JSON.stringify(permittedHardwareKeys))
+    fail("unsafe_hardware_disclosure");
   const serialised = JSON.stringify(source);
   if (
-    /(?:\/fast\/|\/home\/|[A-Za-z]:\\|100\.\d+\.\d+\.\d+|-----BEGIN|ghp_|sk-)/.test(
+    /(?:\/fast\/|\/home\/|[A-Za-z]:\\|100\.\d+\.\d+\.\d+|"(?:host|hostname|node|nodeId|machineId|username|networkInterfaces|ipAddress|privateAddress|endpoint)"\s*:|-----BEGIN|ghp_|sk-)/i.test(
       serialised,
     )
   )
@@ -116,7 +128,7 @@ const improvementPercent = (speedup - 1) * 100;
 const readmeStart = "<!-- BEGIN GENERATED EXAMPLE BENCHMARK -->";
 const readmeEnd = "<!-- END GENERATED EXAMPLE BENCHMARK -->";
 const readmeSummary = `${readmeStart}
-This first worked example is a real physical qualification on **${source.hardware.node}**, using an **${source.hardware.accelerator} (${source.hardware.vramMiB / 1024} GiB)**, **${optimised.runtime.identity}**, and the immutable **${source.model.identity}** model at **${optimised.configuration.contextTokens / 1024}K context**. Both configurations ran ${baseline.summary.invocations} times through successful Agent Control Work Parcels and passed independent verification.
+This first worked example is a real physical qualification on an **${source.hardware.system}** with an **${source.hardware.processor}**, **${source.hardware.memoryGiB} GiB RAM**, **${source.hardware.accelerator} (${source.hardware.vramMiB / 1024} GiB)**, **${source.hardware.operatingSystem}**, and **CUDA ${source.hardware.cudaVersion}**. It uses **${optimised.runtime.identity}** and the immutable **${source.model.identity}** model at **${optimised.configuration.contextTokens / 1024}K context**. Both configurations ran ${baseline.summary.invocations} times through successful Agent Control Work Parcels and passed independent verification.
 
 ![Measured baseline versus optimised Qwen3.8-27B generation throughput on a Quadro P5000](assets/benchmarks/p5000-qwen3.8-27b-generation-throughput.svg)
 
