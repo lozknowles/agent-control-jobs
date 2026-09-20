@@ -15,6 +15,7 @@ import {
   safePath,
   agentTemplates,
   getAgentTemplate,
+  templateEffectiveness,
   validateAgentTemplate,
   templateReadiness,
   templateSelection,
@@ -63,14 +64,14 @@ try {
       print(getJob(arg).manifest);
       break;
     case "template-list":
-      print(agentTemplates().map((template) => ({id: template.manifest.id, version: template.manifest.version, description: template.manifest.description, compatible_jobs: template.manifest.compatible_jobs})));
+      print(agentTemplates().map((template) => ({id: template.manifest.id, version: template.manifest.version, description: template.manifest.description, compatible_jobs: template.manifest.compatible_jobs, status: templateEffectiveness(`${template.manifest.id}@${template.manifest.version}`)})));
       break;
     case "template-search":
       if (!arg) throw Error("search_term_required");
-      print(agentTemplates().filter((template) => JSON.stringify(template.manifest).toLowerCase().includes(arg.toLowerCase())).map((template) => template.manifest));
+      print(agentTemplates().filter((template) => JSON.stringify(template.manifest).toLowerCase().includes(arg.toLowerCase())).map((template) => ({...template.manifest, status: templateEffectiveness(`${template.manifest.id}@${template.manifest.version}`)})));
       break;
     case "template-inspect": {
-      const template = getAgentTemplate(arg); validateAgentTemplate(template); print(template.manifest); break;
+      const template = getAgentTemplate(arg); validateAgentTemplate(template); print({...template.manifest, status: templateEffectiveness(`${template.manifest.id}@${template.manifest.version}`)}); break;
     }
     case "template-readiness": {
       const [jobId, estate, context] = rest; print(templateReadiness(getAgentTemplate(arg), getJob(jobId), read(estate), context ? read(context) : {})); break;
@@ -79,7 +80,7 @@ try {
       const [jobId, estate, context] = rest; print(templateSelection(getAgentTemplate(arg), getJob(jobId), read(estate), context ? read(context) : {})); break;
     }
     case "template-qualifications": {
-      const records = read(path.join(ROOT, "qualifications/templates/index.json")); print(records.filter((record) => record.template_id === arg)); break;
+      const template = getAgentTemplate(arg), records = read(path.join(ROOT, "qualifications/templates/index.json")); print({historical: records.filter((record) => record.template_id === template.manifest.id && record.template_version === template.manifest.version), current: templateEffectiveness(`${template.manifest.id}@${template.manifest.version}`)}); break;
     }
     case "provenance":
       print(getJob(arg).manifest.provenance);

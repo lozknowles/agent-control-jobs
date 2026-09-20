@@ -103,6 +103,14 @@ export function getAgentTemplate(reference, root = ROOT) {
   if (!matches.length) throw Error(`unknown_agent_template: ${reference}`);
   return matches.sort((a, b) => b.manifest.version.localeCompare(a.manifest.version, undefined, {numeric: true}))[0];
 }
+export function templateEffectiveness(reference, root = ROOT) {
+  const template = getAgentTemplate(reference, root);
+  const file = path.join(root, "qualifications/native-execution/status.json");
+  if (!fs.existsSync(file)) return {execution_support: "UNKNOWN", effectiveness: "UNTESTED", evidence: null, limitations: ["No effectiveness status record is available."]};
+  const status = read(file);
+  if (status.schema !== "agent-control.agent-template-effectiveness/v1" || !Array.isArray(status.records)) throw Error("agent_template_effectiveness_status_invalid");
+  return status.records.find((record) => record.template_id === template.manifest.id && record.template_version === template.manifest.version) ?? {execution_support: "UNKNOWN", effectiveness: "UNTESTED", evidence: null, limitations: ["This exact template version is untested."]};
+}
 export function templateDigest(template) {
   const manifest = fs
     .readFileSync(template.manifestPath ?? path.join(template.dir, "template.yaml"), "utf8")
@@ -473,6 +481,7 @@ export function catalogue(root = ROOT) {
     })),
     agent_templates: agentTemplates(root).map((template) => ({
       ...template.manifest,
+      status: templateEffectiveness(`${template.manifest.id}@${template.manifest.version}`, root),
       path: template.path,
       sha256: templateDigest(template),
       payload: Object.fromEntries(["template.yaml", ...template.manifest.files].sort().map((file) => [file, digest(fs.readFileSync(safePath(template.dir, file)))])),

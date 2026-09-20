@@ -1,0 +1,13 @@
+{
+  "schema": "agent-control.agent-template-effectiveness/v1",
+  "generated_at": "2026-09-20T00:00:00Z",
+  "records": [
+    {"template_id":"researcher","template_version":"1.0.0","execution_support":"SUPPORTED","effectiveness":"FAILED_BOUNDED_QUALIFICATION","evidence":"qualifications/native-execution/2026-09-20-qwen25-3b.json","limitations":["0/6 accepted on one local 3B model."]},
+    {"template_id":"code-reviewer","template_version":"1.0.0","execution_support":"SUPPORTED","effectiveness":"FAILED_BOUNDED_QUALIFICATION","evidence":"qualifications/native-execution/2026-09-20-qwen25-3b.json","limitations":["0/8 accepted on one local 3B model."]},
+    {"template_id":"documentation-writer","template_version":"1.0.0","execution_support":"SUPPORTED","effectiveness":"FAILED_BOUNDED_QUALIFICATION","evidence":"qualifications/native-execution/2026-09-20-qwen25-3b.json","limitations":["0/8 accepted on one local 3B model."]},
+    {"template_id":"model-evaluator","template_version":"1.0.0","execution_support":"SUPPORTED","effectiveness":"FAILED_BOUNDED_QUALIFICATION","evidence":"qualifications/native-execution/2026-09-20-qwen25-3b.json","limitations":["0/6 accepted on one local 3B model."]},
+    {"template_id":"evidence-verifier","template_version":"1.0.0","execution_support":"SUPPORTED","effectiveness":"FAILED_BOUNDED_QUALIFICATION","evidence":"qualifications/native-execution/2026-09-20-qwen25-3b.json","limitations":["0/6 accepted in the original suite and 0/9 accepted on held-out v2 cases."]},
+    {"template_id":"evidence-verifier","template_version":"1.1.0","execution_support":"SUPPORTED","effectiveness":"DEVELOPMENT_FAILED_NOT_QUALIFIED","evidence":"qualifications/native-execution/2026-09-20-evidence-verifier-development-1.1.json","limitations":["Development-only evidence; 0/4 accepted before the final contract correction."]},
+    {"template_id":"evidence-verifier","template_version":"1.2.0","execution_support":"SUPPORTED","effectiveness":"HELD_OUT_FAILED_NOT_QUALIFIED","evidence":"qualifications/native-execution/2026-09-20-evidence-verifier-heldout-1.2.json","limitations":["2/4 development runs accepted on one direct supported-scalar case; 0/9 revised-template held-out runs accepted.","Not qualified as a useful specialist beyond the recorded successful development case."]}
+  ]
+}

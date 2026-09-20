@@ -48,3 +48,7 @@ Static validation and fixture checks are not physical qualification. Native phys
 - Catalogue presence is not qualification.
 - The first candidate's static records remain immutable historical evidence. Later native comparison evidence is retained separately under `qualifications/native-execution/`; it does not retroactively turn static validation into model-effectiveness evidence.
 - Team templates are a future extension; this release covers individual specialists only.
+
+## Current effectiveness status
+
+Execution availability and specialist effectiveness are separate fields in the catalogue and CLI. The five original 1.0.0 templates have native execution support but failed the retained bounded Qwen2.5-3B qualification. Evidence-verifier 1.2.0 passed a direct supported-scalar development case but accepted 0/9 revised-template held-out runs, so it remains `HELD_OUT_FAILED_NOT_QUALIFIED`. See `qualifications/native-execution/status.json`, the failure analysis, and the bounded evidence-verifier summary. A `READY` execution response must not be displayed as an effectiveness pass.
