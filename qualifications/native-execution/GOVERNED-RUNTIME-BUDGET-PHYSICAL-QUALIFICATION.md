@@ -18,3 +18,5 @@ The reconciled runtime distinguishes absolute job, model-call, tool-call, no-pro
 | Transport cannot silently override policy | per-call Undici header/body deadlines equal governed call deadline; native header timeout classified `TRANSPORT_TIMEOUT`; streaming call completed without the historical 120 s harness timeout | PASS in code/tests; >300 s physical crossing not observed |
 
 The real model call did not exceed 120 or 300 seconds, so this run does not physically demonstrate survival beyond either historical wall. That specific long-duration boundary remains untested, rather than inferred. Linux focused tests passed 79/79, full Agent Control passed 1,975/1,975, and Agent Control Lab passed 86/86.
+
+The executed report retained provider timings and the completed 512-token stream but its report projection omitted the invocation's `meaningful_progress_events` evidence ID, so the exact event count is unavailable for this attempt. Agent Control now includes invocation evidence IDs in subsequent qualification reports; the preserved JSON was not rewritten or re-run after the stop gate.
