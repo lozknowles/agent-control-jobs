@@ -8968,7 +8968,8 @@
         "effectiveness": "HELD_OUT_FAILED_NOT_QUALIFIED",
         "evidence": "qualifications/native-execution/2026-09-20-evidence-verifier-heldout-1.2.json",
         "additional_evidence": [
-          "qualifications/native-execution/2026-09-20-evidence-verifier-qwen38-27b-regression.json"
+          "qualifications/native-execution/2026-09-20-evidence-verifier-qwen38-27b-regression.json",
+          "qualifications/native-execution/2026-09-20-evidence-verifier-qwen38-27b.md"
         ],
         "limitations": [
           "2/4 development runs accepted on one direct supported-scalar case; 0/9 revised-template held-out runs accepted on Qwen2.5-3B.",
