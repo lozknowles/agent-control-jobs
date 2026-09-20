@@ -1,6 +1,6 @@
 # Qwen3.8-27B full-GPU governed-runtime qualification
 
-Date: 20 September 2026  
+Date: 20 September 2026
 Status: **STOPPED AT ONE-CALL GATE — OPERATIONALLY_UNSUITABLE FOR THIS FROZEN WORKLOAD**
 
 This is controlled regression evidence, not fresh held-out qualification. The exact model/runtime/hardware combination loaded stably and produced tokens through Agent Control's native Work Parcel -> Job Runtime path, but the representative frozen call did not reach a natural terminal response. It exhausted the unchanged 512-token output allowance with `finishReason: length`, leaving truncated JSON. Per the predeclared stop gate, the three-case replication, 27-call arm comparison, and fresh held-out set were not run.
