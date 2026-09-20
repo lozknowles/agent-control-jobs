@@ -46,5 +46,5 @@ Static validation and fixture checks are not physical qualification. Native phys
 - Provider-specific adaptations must remain separate and are retained in effective-instruction provenance.
 - A template cannot widen Job or operator permissions.
 - Catalogue presence is not qualification.
-- The first candidate includes static validation records only until native comparison evidence is retained.
+- The first candidate's static records remain immutable historical evidence. Later native comparison evidence is retained separately under `qualifications/native-execution/`; it does not retroactively turn static validation into model-effectiveness evidence.
 - Team templates are a future extension; this release covers individual specialists only.
