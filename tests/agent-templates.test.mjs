@@ -6,14 +6,19 @@ import path from "node:path";
 import {spawnSync} from "node:child_process";
 import {ROOT, agentTemplates, getAgentTemplate, getJob, templateDigest, templateReadiness, templateSelection, validateAgentTemplate} from "../tools/library.mjs";
 
-test("five agent templates validate and bind exact portable content", () => {
+test("versioned agent templates validate and bind exact portable content", () => {
   const templates = agentTemplates();
-  assert.deepEqual(templates.map((item) => item.manifest.id), ["code-reviewer", "documentation-writer", "evidence-verifier", "model-evaluator", "researcher"]);
+  assert.deepEqual(templates.map((item) => `${item.manifest.id}@${item.manifest.version}`), ["code-reviewer@1.0.0", "documentation-writer@1.0.0", "evidence-verifier@1.0.0", "evidence-verifier@1.1.0", "model-evaluator@1.0.0", "researcher@1.0.0"]);
   for (const template of templates) {
     assert.equal(validateAgentTemplate(template), true);
     assert.equal(templateDigest(template), template.manifest.content_digest);
     assert.equal(template.manifest.requirements.memory.mode === "run-scoped" || template.manifest.requirements.memory.mode === "none", true);
   }
+});
+
+test("template lookup selects an exact version or the latest version", () => {
+  assert.equal(getAgentTemplate("evidence-verifier@1.0.0").manifest.version, "1.0.0");
+  assert.equal(getAgentTemplate("evidence-verifier").manifest.version, "1.1.0");
 });
 
 test("template digest rejects edited content without a versioned manifest update", (t) => {

@@ -95,10 +95,13 @@ export function agentTemplates(root = ROOT) {
     }))
     .sort((a, b) => (a.manifest.id < b.manifest.id ? -1 : 1));
 }
-export function getAgentTemplate(id, root = ROOT) {
-  const template = agentTemplates(root).find((item) => item.manifest.id === id);
-  if (!template) throw Error(`unknown_agent_template: ${id}`);
-  return template;
+export function getAgentTemplate(reference, root = ROOT) {
+  const split = reference.lastIndexOf("@");
+  const id = split > 0 ? reference.slice(0, split) : reference;
+  const version = split > 0 ? reference.slice(split + 1) : null;
+  const matches = agentTemplates(root).filter((item) => item.manifest.id === id && (!version || item.manifest.version === version));
+  if (!matches.length) throw Error(`unknown_agent_template: ${reference}`);
+  return matches.sort((a, b) => b.manifest.version.localeCompare(a.manifest.version, undefined, {numeric: true}))[0];
 }
 export function templateDigest(template) {
   const manifest = fs
@@ -209,7 +212,7 @@ export function validateJob(j, root = ROOT) {
 }
 export function validateAgentTemplate(template, root = ROOT) {
   const manifest = schema("agent-template", template.manifest, root);
-  if (path.basename(template.dir) !== manifest.id) throw Error("template_identity_path_mismatch");
+  if (![manifest.id, `${manifest.id}-v${manifest.version}`].includes(path.basename(template.dir))) throw Error("template_identity_path_mismatch");
   const actual = walk(template.dir).map((file) => path.relative(template.dir, file).split(path.sep).join("/")).sort();
   const declared = ["template.yaml", ...manifest.files].sort();
   if (json(actual) !== json(declared)) throw Error("template_manifest_payload_mismatch");
@@ -298,8 +301,9 @@ export function validate(root = ROOT) {
   }
   const templateIds = new Set();
   for (const template of agentTemplates(root)) {
-    if (templateIds.has(template.manifest.id)) throw Error("duplicate_agent_template");
-    templateIds.add(template.manifest.id);
+    const identity = `${template.manifest.id}@${template.manifest.version}`;
+    if (templateIds.has(identity)) throw Error("duplicate_agent_template_version");
+    templateIds.add(identity);
     validateAgentTemplate(template, root);
   }
   for (const u of uses)
