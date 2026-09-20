@@ -8492,5 +8492,448 @@
         "variants/live.md": "ca035a2040745e033b0f53cbbe8e30d6bf3ee137da65cf3f2dea59f05da00ec8"
       }
     }
+  ],
+  "agent_templates": [
+    {
+      "spec_version": "1.0.0",
+      "id": "code-reviewer",
+      "version": "1.0.0",
+      "description": "Produces specific, evidence-backed findings about a bounded set of code changes.",
+      "intended_use": "Review a patch, pull request or repository snapshot against stated requirements.",
+      "role": "Evidence-led code review specialist",
+      "workflow": [
+        "Establish the change boundary, intended behaviour and applicable repository instructions.",
+        "Inspect changed code and relevant callers, tests and contracts.",
+        "Validate suspected defects against concrete execution paths or authoritative documentation.",
+        "Report prioritised findings with locations, impact and supporting evidence."
+      ],
+      "inputs": [
+        "Bounded code changes or repository snapshot",
+        "requirements and relevant test evidence."
+      ],
+      "output": {
+        "format": "Prioritised review findings followed by assumptions and residual risk.",
+        "requirements": [
+          "Each finding identifies a concrete location, trigger, impact and evidence.",
+          "Zero supported findings is valid and must not be replaced with speculative issues.",
+          "Style-only preferences are excluded unless they break an established contract."
+        ]
+      },
+      "requirements": {
+        "capabilities": [
+          "evidence.report"
+        ],
+        "permissions": [
+          {
+            "kind": "read-only",
+            "scope": "bound-inputs"
+          },
+          {
+            "kind": "local-mutation",
+            "scope": "run-output"
+          }
+        ],
+        "tools": [],
+        "context": [
+          "change diff",
+          "repository instructions",
+          "requirements",
+          "relevant tests"
+        ],
+        "memory": {
+          "mode": "run-scoped",
+          "requirements": [
+            "reviewed paths and finding evidence only for this run"
+          ]
+        }
+      },
+      "compatible_jobs": [
+        "review-pull-request",
+        "repository-health-audit"
+      ],
+      "limitations": [
+        "Static inspection does not prove runtime behaviour unless matched execution evidence is supplied.",
+        "Does not require a predetermined number of findings or revisions."
+      ],
+      "blocked_when": [
+        "The change boundary or source revision cannot be established.",
+        "Required files or evidence are unavailable within the granted scope."
+      ],
+      "provenance": {
+        "source": "agency-agents Code Reviewer, selectively adapted",
+        "url": "https://github.com/msitarzewski/agency-agents",
+        "license": "MIT; Copyright (c) 2025 AgentLand Contributors",
+        "upstream_revision": "ad9264e309bd5e5422c04784372d7841b1e5d604",
+        "adapted_files": [
+          "engineering/engineering-code-reviewer.md"
+        ]
+      },
+      "qualification_refs": [
+        "qualifications/templates/index.json"
+      ],
+      "files": [
+        "instructions.md"
+      ],
+      "content_digest": "e0cd6b4ed3d50df8f235c3e316b030f83738f8e57bf36c5907ced332d6a7da18",
+      "path": "agent-templates/code-reviewer",
+      "sha256": "e0cd6b4ed3d50df8f235c3e316b030f83738f8e57bf36c5907ced332d6a7da18",
+      "payload": {
+        "instructions.md": "068c994ba88e0a73ac51198a46ff1cd9f2662142d8408fa10a12b6fc0574577a",
+        "template.yaml": "a42659bbd887c0bdb9938b772ef19004ac65fbd9240f8167902e6e76c0655b79"
+      }
+    },
+    {
+      "spec_version": "1.0.0",
+      "id": "documentation-writer",
+      "version": "1.0.0",
+      "description": "Creates user-facing or technical documentation from verified implementation and evidence.",
+      "intended_use": "Produce accurate documentation without promoting plans or unverified behaviour to implemented status.",
+      "role": "Evidence-grounded documentation specialist",
+      "workflow": [
+        "Identify audience, scope and the authoritative implementation and evidence sources.",
+        "Build a fact ledger separating implemented, tested, qualified and proposed behaviour.",
+        "Draft task-oriented documentation with prerequisites, examples and limitations.",
+        "Cross-check every operational statement and command against the bound revision."
+      ],
+      "inputs": [
+        "Verified implementation",
+        "evidence records",
+        "audience and documentation objective."
+      ],
+      "output": {
+        "format": "Structured documentation with examples, trust boundaries and limitations.",
+        "requirements": [
+          "Status language matches the evidence level.",
+          "Commands and examples do not contain credentials or machine-specific assumptions.",
+          "Unsupported details are omitted or clearly labelled."
+        ]
+      },
+      "requirements": {
+        "capabilities": [
+          "evidence.report"
+        ],
+        "permissions": [
+          {
+            "kind": "read-only",
+            "scope": "bound-inputs"
+          },
+          {
+            "kind": "local-mutation",
+            "scope": "run-output"
+          }
+        ],
+        "tools": [],
+        "context": [
+          "implementation revision",
+          "verified evidence",
+          "audience",
+          "style conventions"
+        ],
+        "memory": {
+          "mode": "run-scoped",
+          "requirements": [
+            "fact ledger and terminology for this run"
+          ]
+        }
+      },
+      "compatible_jobs": [
+        "documentation-consistency",
+        "structured-extraction"
+      ],
+      "limitations": [
+        "Does not infer implementation from proposals, mock-ups or intended designs.",
+        "Does not grant publication or repository mutation authority."
+      ],
+      "blocked_when": [
+        "Implementation identity or evidence for required operational claims is unavailable.",
+        "Source material conflicts cannot be resolved within the supplied evidence."
+      ],
+      "provenance": {
+        "source": "agency-agents Executive Summary Generator, selectively adapted for technical documentation",
+        "url": "https://github.com/msitarzewski/agency-agents",
+        "license": "MIT; Copyright (c) 2025 AgentLand Contributors",
+        "upstream_revision": "ad9264e309bd5e5422c04784372d7841b1e5d604",
+        "adapted_files": [
+          "support/support-executive-summary-generator.md"
+        ]
+      },
+      "qualification_refs": [
+        "qualifications/templates/index.json"
+      ],
+      "files": [
+        "instructions.md"
+      ],
+      "content_digest": "b3b4cb084faf56f5bacc65097042c8b1f9de96148c981c913dc5d994bc05920d",
+      "path": "agent-templates/documentation-writer",
+      "sha256": "b3b4cb084faf56f5bacc65097042c8b1f9de96148c981c913dc5d994bc05920d",
+      "payload": {
+        "instructions.md": "912a2230cf91caa6917031c228b3619f67e2fedb4551955a8876c55f816052ab",
+        "template.yaml": "d78e9df4b55fcd3187b150efa3b7b4458ebeef1f37bb1d0f42ab37a53f104aa5"
+      }
+    },
+    {
+      "spec_version": "1.0.0",
+      "id": "evidence-verifier",
+      "version": "1.0.0",
+      "description": "Checks claims against original run records and immutable artefacts without substituting presentation evidence.",
+      "intended_use": "Verify execution, qualification or release claims against retained primary evidence.",
+      "role": "Independent evidence verification specialist",
+      "workflow": [
+        "Enumerate each claim and define evidence that could support or refute it.",
+        "Resolve original run records, artefact identities, digests and provenance chains.",
+        "Check scope, timestamps, configuration identity and independence of verification.",
+        "Return supported, unsupported, contradicted or insufficient-evidence verdicts."
+      ],
+      "inputs": [
+        "Claims",
+        "original run records",
+        "artefact manifests and applicable acceptance criteria."
+      ],
+      "output": {
+        "format": "Claim-by-claim verification matrix with evidence references and limitations.",
+        "requirements": [
+          "Missing evidence is distinct from failed behaviour.",
+          "Screenshots are accepted only for claims they can actually demonstrate.",
+          "Every supported verdict binds to original evidence identity."
+        ]
+      },
+      "requirements": {
+        "capabilities": [
+          "evidence.report"
+        ],
+        "permissions": [
+          {
+            "kind": "read-only",
+            "scope": "bound-inputs"
+          },
+          {
+            "kind": "local-mutation",
+            "scope": "run-output"
+          }
+        ],
+        "tools": [],
+        "context": [
+          "claims",
+          "evidence manifest",
+          "acceptance criteria",
+          "run identity"
+        ],
+        "memory": {
+          "mode": "none",
+          "requirements": []
+        }
+      },
+      "compatible_jobs": [
+        "hallucination-resistance",
+        "documentation-consistency"
+      ],
+      "limitations": [
+        "Cannot convert absent or non-authoritative evidence into a pass.",
+        "Verification applies only to the recorded run, configuration and evidence window."
+      ],
+      "blocked_when": [
+        "Primary records, digests or acceptance criteria needed for a verdict are missing.",
+        "Evidence integrity or run identity cannot be established."
+      ],
+      "provenance": {
+        "source": "agency-agents Evidence Collector, safety-corrected selective adaptation",
+        "url": "https://github.com/msitarzewski/agency-agents",
+        "license": "MIT; Copyright (c) 2025 AgentLand Contributors",
+        "upstream_revision": "ad9264e309bd5e5422c04784372d7841b1e5d604",
+        "adapted_files": [
+          "testing/testing-evidence-collector.md"
+        ]
+      },
+      "qualification_refs": [
+        "qualifications/templates/index.json"
+      ],
+      "files": [
+        "instructions.md"
+      ],
+      "content_digest": "1efb429a57b5baa176333b35ebeda29d42fc8462e1ea5f868415503704fb464b",
+      "path": "agent-templates/evidence-verifier",
+      "sha256": "1efb429a57b5baa176333b35ebeda29d42fc8462e1ea5f868415503704fb464b",
+      "payload": {
+        "instructions.md": "6133547f17cbaadf8838bf6b431925f7c634986defac522ed54995359a374684",
+        "template.yaml": "08c2ba5b805148eb26971c0f76815b5ea1ed3df9281dee55a0e49592ef8da0cc"
+      }
+    },
+    {
+      "spec_version": "1.0.0",
+      "id": "model-evaluator",
+      "version": "1.0.0",
+      "description": "Analyses benchmark quality, performance, failures and trade-offs for bound model/runtime configurations.",
+      "intended_use": "Compare matched benchmark or qualification runs without overstating incomplete or non-authoritative measurements.",
+      "role": "Model evaluation specialist",
+      "workflow": [
+        "Verify task, model, runtime, tools, budget and setting comparability.",
+        "Score outputs against independently defined acceptance criteria.",
+        "Analyse quality, unsupported claims, missed requirements, failures, tokens, elapsed time and cost authority.",
+        "Report variation, uncontrolled differences and configuration-scoped trade-offs."
+      ],
+      "inputs": [
+        "Matched run evidence",
+        "acceptance criteria",
+        "configuration identities and benchmark outputs."
+      ],
+      "output": {
+        "format": "Configuration-bound evaluation report with metrics, failures and trade-offs.",
+        "requirements": [
+          "Expected answers remain outside worker inputs.",
+          "Cost is authoritative only when supplied by an authoritative source.",
+          "Results are scoped to tested configurations and workload coverage."
+        ]
+      },
+      "requirements": {
+        "capabilities": [
+          "evidence.report",
+          "model.invoke"
+        ],
+        "permissions": [
+          {
+            "kind": "read-only",
+            "scope": "bound-inputs"
+          },
+          {
+            "kind": "local-mutation",
+            "scope": "run-output"
+          }
+        ],
+        "tools": [],
+        "context": [
+          "acceptance criteria",
+          "run evidence",
+          "model and runtime identity",
+          "matched settings"
+        ],
+        "memory": {
+          "mode": "run-scoped",
+          "requirements": [
+            "comparison ledger for this evaluation only"
+          ]
+        }
+      },
+      "compatible_jobs": [
+        "benchmark-model",
+        "compare-models"
+      ],
+      "limitations": [
+        "Does not generalise beyond the tested configuration and workload coverage.",
+        "Statistical claims require enough repeated, independent observations."
+      ],
+      "blocked_when": [
+        "Model, runtime, settings or evidence identities are missing or incomparable.",
+        "Protected workloads or resource limits prevent native execution."
+      ],
+      "provenance": {
+        "source": "agency-agents Test Results Analyzer, selectively adapted",
+        "url": "https://github.com/msitarzewski/agency-agents",
+        "license": "MIT; Copyright (c) 2025 AgentLand Contributors",
+        "upstream_revision": "ad9264e309bd5e5422c04784372d7841b1e5d604",
+        "adapted_files": [
+          "testing/testing-test-results-analyzer.md"
+        ]
+      },
+      "qualification_refs": [
+        "qualifications/templates/index.json"
+      ],
+      "files": [
+        "instructions.md"
+      ],
+      "content_digest": "dabd6281fe9a1fa39a54fc73b737f552067b92f96f6310c8c05323e8197ad237",
+      "path": "agent-templates/model-evaluator",
+      "sha256": "dabd6281fe9a1fa39a54fc73b737f552067b92f96f6310c8c05323e8197ad237",
+      "payload": {
+        "instructions.md": "a52ce62ef111390b90da23a03d1c1d4c07d970ac420304d1058c9fa76733f0d4",
+        "template.yaml": "d497d9ce4dcb5dea97327fa4cbbec313d3396d09d3d3a1fc63d3d07dc03dd1b7"
+      }
+    },
+    {
+      "spec_version": "1.0.0",
+      "id": "researcher",
+      "version": "1.0.0",
+      "description": "Gathers and evaluates sources while separating supported facts, inference and uncertainty.",
+      "intended_use": "Bounded technical research and source comparison where claims must remain traceable.",
+      "role": "Evidence-led research specialist",
+      "workflow": [
+        "Frame the question and record scope, search boundaries and acceptance criteria.",
+        "Gather the best available original sources and identify derivative or circular citations.",
+        "Classify each material statement as supported fact, inference, contested claim or uncertainty.",
+        "Synthesize findings with citations, limitations and explicit evidence gaps."
+      ],
+      "inputs": [
+        "A research question, bounded scope and acceptance criteria.",
+        "Source material or authorised source-access capability."
+      ],
+      "output": {
+        "format": "Structured research report with claim-level source references.",
+        "requirements": [
+          "State search boundaries and excluded material.",
+          "Separate supported facts, inference, contested claims and unknowns.",
+          "Permit an honest insufficient-evidence result."
+        ]
+      },
+      "requirements": {
+        "capabilities": [
+          "evidence.report"
+        ],
+        "permissions": [
+          {
+            "kind": "read-only",
+            "scope": "bound-inputs"
+          },
+          {
+            "kind": "local-mutation",
+            "scope": "run-output"
+          }
+        ],
+        "tools": [],
+        "context": [
+          "research question",
+          "acceptance criteria",
+          "authorised source set"
+        ],
+        "memory": {
+          "mode": "run-scoped",
+          "requirements": [
+            "source ledger and claim-to-source map only for this run"
+          ]
+        }
+      },
+      "compatible_jobs": [
+        "technical-research",
+        "source-comparison"
+      ],
+      "limitations": [
+        "Does not create primary evidence or establish facts beyond the supplied or authorised sources.",
+        "Source volume is not treated as independent corroboration."
+      ],
+      "blocked_when": [
+        "Required source access is unavailable or outside the granted scope.",
+        "The question cannot be answered without material evidence absent from the run."
+      ],
+      "provenance": {
+        "source": "agency-agents Research Synthesist, selectively adapted",
+        "url": "https://github.com/msitarzewski/agency-agents",
+        "license": "MIT; Copyright (c) 2025 AgentLand Contributors",
+        "upstream_revision": "ad9264e309bd5e5422c04784372d7841b1e5d604",
+        "adapted_files": [
+          "research/research-synthesist.md"
+        ]
+      },
+      "qualification_refs": [
+        "qualifications/templates/index.json"
+      ],
+      "files": [
+        "instructions.md"
+      ],
+      "content_digest": "8ba9af2feae3d3fa79fb47e00a92dd4b6878f14efe4e212256d00202c589359b",
+      "path": "agent-templates/researcher",
+      "sha256": "8ba9af2feae3d3fa79fb47e00a92dd4b6878f14efe4e212256d00202c589359b",
+      "payload": {
+        "instructions.md": "da0417b1bd7cdc92627324119111ad730b065cb373bdf8f3e8d016f40925262d",
+        "template.yaml": "7d6fc6ff85570258f229ddb2deaca13445df3d8db813759f34bd3fcb61c8ff30"
+      }
+    }
   ]
 }

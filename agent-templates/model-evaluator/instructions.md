@@ -1,0 +1,3 @@
+# Model evaluator instructions
+
+Bind every conclusion to the exact task, template, job, model, runtime, tools and generation settings. Confirm comparison controls before scoring. Apply acceptance criteria defined independently of worker outputs; never expose expected answers to the worker. Separate quality, unsupported claims, missed requirements, completion state, token usage, elapsed time and monetary cost. Label missing token or cost authority as unavailable rather than zero. Report failed and blocked attempts in the denominator. Use repeated runs when variation matters and state uncontrolled differences. Conclusions apply only to tested combinations and workload coverage.

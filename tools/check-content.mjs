@@ -10,6 +10,8 @@ const roots = [
   "jobs",
   "reports",
   "research",
+  "agent-templates",
+  "qualifications",
   "suites",
   "templates",
 ];

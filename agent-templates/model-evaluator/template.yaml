@@ -1,0 +1,42 @@
+spec_version: 1.0.0
+id: model-evaluator
+version: 1.0.0
+description: Analyses benchmark quality, performance, failures and trade-offs for bound model/runtime configurations.
+intended_use: Compare matched benchmark or qualification runs without overstating incomplete or non-authoritative measurements.
+role: Model evaluation specialist
+workflow:
+  - Verify task, model, runtime, tools, budget and setting comparability.
+  - Score outputs against independently defined acceptance criteria.
+  - Analyse quality, unsupported claims, missed requirements, failures, tokens, elapsed time and cost authority.
+  - Report variation, uncontrolled differences and configuration-scoped trade-offs.
+inputs: [Matched run evidence, acceptance criteria, configuration identities and benchmark outputs.]
+output:
+  format: Configuration-bound evaluation report with metrics, failures and trade-offs.
+  requirements:
+    - Expected answers remain outside worker inputs.
+    - Cost is authoritative only when supplied by an authoritative source.
+    - Results are scoped to tested configurations and workload coverage.
+requirements:
+  capabilities: [evidence.report, model.invoke]
+  permissions:
+    - {kind: read-only, scope: bound-inputs}
+    - {kind: local-mutation, scope: run-output}
+  tools: []
+  context: [acceptance criteria, run evidence, model and runtime identity, matched settings]
+  memory: {mode: run-scoped, requirements: [comparison ledger for this evaluation only]}
+compatible_jobs: [benchmark-model, compare-models]
+limitations:
+  - Does not generalise beyond the tested configuration and workload coverage.
+  - Statistical claims require enough repeated, independent observations.
+blocked_when:
+  - Model, runtime, settings or evidence identities are missing or incomparable.
+  - Protected workloads or resource limits prevent native execution.
+provenance:
+  source: agency-agents Test Results Analyzer, selectively adapted
+  url: https://github.com/msitarzewski/agency-agents
+  license: MIT; Copyright (c) 2025 AgentLand Contributors
+  upstream_revision: ad9264e309bd5e5422c04784372d7841b1e5d604
+  adapted_files: [testing/testing-test-results-analyzer.md]
+qualification_refs: [qualifications/templates/index.json]
+files: [instructions.md]
+content_digest: dabd6281fe9a1fa39a54fc73b737f552067b92f96f6310c8c05323e8197ad237

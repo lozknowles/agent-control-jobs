@@ -1,0 +1,3 @@
+# Evidence verifier instructions
+
+Start from the claims, not from a desired verdict. For each claim, identify the evidence type capable of proving it and inspect the original run record or artefact rather than a downstream summary. Check revision, template and job digest, inputs, execution configuration, model/runtime identity, timestamps, integrity and acceptance criteria. Treat screenshots as presentation evidence only where visible state is the claim; they do not prove backend execution, cleanup, cost, timing, audio quality or other non-visual behaviour. Distinguish unsupported, contradicted and insufficient evidence. Zero failures is valid when supported by the defined evidence and coverage.

@@ -84,6 +84,31 @@ export function jobs(root = ROOT) {
     }))
     .sort((a, b) => (a.manifest.id < b.manifest.id ? -1 : 1));
 }
+export function agentTemplates(root = ROOT) {
+  return walk(path.join(root, "agent-templates"))
+    .filter((p) => p.endsWith(`${path.sep}template.yaml`))
+    .map((p) => ({
+      manifest: read(p),
+      dir: path.dirname(p),
+      path: path.relative(root, path.dirname(p)).split(path.sep).join("/"),
+      manifestPath: p,
+    }))
+    .sort((a, b) => (a.manifest.id < b.manifest.id ? -1 : 1));
+}
+export function getAgentTemplate(id, root = ROOT) {
+  const template = agentTemplates(root).find((item) => item.manifest.id === id);
+  if (!template) throw Error(`unknown_agent_template: ${id}`);
+  return template;
+}
+export function templateDigest(template) {
+  const manifest = fs
+    .readFileSync(template.manifestPath ?? path.join(template.dir, "template.yaml"), "utf8")
+    .replace(/^content_digest:\s*.*$/m, `content_digest: ${"0".repeat(64)}`);
+  return digest([
+    `template.yaml\0${digest(Buffer.from(manifest))}`,
+    ...template.manifest.files.slice().sort().map((file) => `${file}\0${digest(fs.readFileSync(safePath(template.dir, file)))}`),
+  ].join("\n"));
+}
 export function getJob(id, root = ROOT) {
   const j = jobs(root).find((j) => j.manifest.id === id);
   if (!j) throw Error(`unknown_job: ${id}`);
@@ -182,6 +207,36 @@ export function validateJob(j, root = ROOT) {
     throw Error(`expected_result_invalid: ${verdict.errors}`);
   return true;
 }
+export function validateAgentTemplate(template, root = ROOT) {
+  const manifest = schema("agent-template", template.manifest, root);
+  if (path.basename(template.dir) !== manifest.id) throw Error("template_identity_path_mismatch");
+  const actual = walk(template.dir).map((file) => path.relative(template.dir, file).split(path.sep).join("/")).sort();
+  const declared = ["template.yaml", ...manifest.files].sort();
+  if (json(actual) !== json(declared)) throw Error("template_manifest_payload_mismatch");
+  for (const file of manifest.files) {
+    const target = safePath(template.dir, file);
+    if (!fs.existsSync(target)) throw Error("template_missing_payload");
+    const findings = scanText(fs.readFileSync(target, "utf8"));
+    if (findings.length) throw Error(`${manifest.id}/${file}: ${findings.join(",")}`);
+  }
+  for (const adaptation of manifest.provider_adaptations ?? []) {
+    if (!manifest.files.includes(adaptation.file)) throw Error(`template_adaptation_file_undeclared:${adaptation.id}`);
+    if (digest(fs.readFileSync(safePath(template.dir, adaptation.file))) !== adaptation.content_digest)
+      throw Error(`template_adaptation_digest_mismatch:${adaptation.id}`);
+  }
+  if (templateDigest(template) !== manifest.content_digest) throw Error("template_digest_mismatch");
+  const knownJobs = new Map(jobs(root).map((job) => [job.manifest.id, job.manifest]));
+  for (const id of manifest.compatible_jobs) {
+    const job = knownJobs.get(id);
+    if (!job) throw Error(`template_job_missing:${id}`);
+    for (const capability of manifest.requirements.capabilities)
+      if (!job.capabilities.includes(capability)) throw Error(`template_job_capability_mismatch:${id}:${capability}`);
+    for (const permission of manifest.requirements.permissions)
+      if (!job.permissions.some((candidate) => candidate.kind === permission.kind && candidate.scope === permission.scope))
+        throw Error(`template_job_permission_mismatch:${id}:${permission.kind}:${permission.scope}`);
+  }
+  return true;
+}
 export function verify(j, result) {
   const errors = [];
   const v = ajv.compile(j.manifest.outputs);
@@ -241,6 +296,12 @@ export function validate(root = ROOT) {
         throw Error("broken_provenance");
     }
   }
+  const templateIds = new Set();
+  for (const template of agentTemplates(root)) {
+    if (templateIds.has(template.manifest.id)) throw Error("duplicate_agent_template");
+    templateIds.add(template.manifest.id);
+    validateAgentTemplate(template, root);
+  }
   for (const u of uses)
     for (const id of u.canonical_jobs)
       if (!ids.has(id)) throw Error("broken_traceability");
@@ -275,6 +336,7 @@ export function validate(root = ROOT) {
     use_cases: uses.length,
     sources: sources.length,
     suites: suiteIds.size,
+    agent_templates: templateIds.size,
   };
 }
 export function compatibility(j, estate, context = {}, clock = new Date()) {
@@ -356,6 +418,39 @@ export function compatibility(j, estate, context = {}, clock = new Date()) {
     note: "Advisory compatibility only. Runtime must recheck authority, target, cost and freshness.",
   };
 }
+export function templateReadiness(template, job, estate, context = {}, clock = new Date()) {
+  validateAgentTemplate(template);
+  if (!template.manifest.compatible_jobs.includes(job.manifest.id)) throw Error("template_job_incompatible");
+  const base = compatibility(job, estate, context, clock), reasons = [...base.reasons];
+  for (const capability of template.manifest.requirements.capabilities)
+    if (!estate.capabilities.includes(capability)) reasons.push({state: "UNSUPPORTED", reason: `template-capability:${capability}`});
+  for (const tool of template.manifest.requirements.tools)
+    if (!estate.capabilities.includes(tool)) reasons.push({state: "CONFIGURATION_REQUIRED", reason: `template-tool:${tool}`});
+  const priority = ["BLOCKED", "UNSUPPORTED", "CONNECTOR_REQUIRED", "CREDENTIAL_REQUIRED", "CONFIGURATION_REQUIRED", "APPROVAL_REQUIRED"];
+  return {
+    schema: "agent-control.template-readiness/v1",
+    template: `${template.manifest.id}@${template.manifest.version}`,
+    template_digest: template.manifest.content_digest,
+    job: `${job.manifest.id}@${job.manifest.version}`,
+    job_digest: base.job_digest,
+    state: priority.find((state) => reasons.some((reason) => reason.state === state)) ?? "READY",
+    reasons,
+    authority_granted: false,
+    note: "Advisory readiness only. Agent Control must revalidate the digest, permissions, target, budget and evidence freshness before dispatch.",
+  };
+}
+export function templateSelection(template, job, estate, context = {}, clock = new Date()) {
+  const readiness = templateReadiness(template, job, estate, context, clock);
+  return {
+    schema: "agent-control.template-selection/v1",
+    template: {id: template.manifest.id, version: template.manifest.version, digest: template.manifest.content_digest},
+    job: {id: job.manifest.id, version: job.manifest.version, digest: readiness.job_digest},
+    inputs_digest: context.input_digest ?? null,
+    target: context.target ?? null,
+    readiness,
+    execution: "SUBMIT_TO_AGENT_CONTROL",
+  };
+}
 export function catalogue(root = ROOT) {
   validate(root);
   const all = jobs(root);
@@ -371,6 +466,12 @@ export function catalogue(root = ROOT) {
           .sort()
           .map((p) => [p, digest(fs.readFileSync(safePath(j.dir, p)))]),
       ),
+    })),
+    agent_templates: agentTemplates(root).map((template) => ({
+      ...template.manifest,
+      path: template.path,
+      sha256: templateDigest(template),
+      payload: Object.fromEntries(["template.yaml", ...template.manifest.files].sort().map((file) => [file, digest(fs.readFileSync(safePath(template.dir, file)))])),
     })),
   };
 }

@@ -9,8 +9,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "3a114fef34120efc6c480f832326198382d117577fd8575fb2e77fa7ab758947",
-      "sizeBytes": 12069
+      "sha256": "4155afa4eabebe9e671e047e326bcc019d17568e4f476ef241923f2a260ae995",
+      "sizeBytes": 12796
     },
     {
       "path": "assets/benchmarks/p5000-qwen3.8-27b-generation-throughput.svg",

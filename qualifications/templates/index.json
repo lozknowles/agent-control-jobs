@@ -1,0 +1,7 @@
+[
+  {"template_id":"researcher","template_version":"1.0.0","status":"STATIC_VALIDATED","coverage":"manifest, digest, catalogue and fixture contract only","physical_runs":0,"limitations":["No native Agent Control comparison run is included in this repository candidate."]},
+  {"template_id":"code-reviewer","template_version":"1.0.0","status":"STATIC_VALIDATED","coverage":"manifest, digest, catalogue and fixture contract only","physical_runs":0,"limitations":["No native Agent Control comparison run is included in this repository candidate."]},
+  {"template_id":"evidence-verifier","template_version":"1.0.0","status":"STATIC_VALIDATED","coverage":"manifest, digest, catalogue and fixture contract only","physical_runs":0,"limitations":["No native Agent Control comparison run is included in this repository candidate."]},
+  {"template_id":"documentation-writer","template_version":"1.0.0","status":"STATIC_VALIDATED","coverage":"manifest, digest, catalogue and fixture contract only","physical_runs":0,"limitations":["No native Agent Control comparison run is included in this repository candidate."]},
+  {"template_id":"model-evaluator","template_version":"1.0.0","status":"STATIC_VALIDATED","coverage":"manifest, digest, catalogue and fixture contract only","physical_runs":0,"limitations":["No native Agent Control comparison run is included in this repository candidate."]}
+]

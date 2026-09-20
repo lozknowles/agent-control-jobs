@@ -6,6 +6,7 @@
   <a href="benchmarks/README.md">Benchmarks</a> ·
   <a href="experiments/README.md">Experiments</a> ·
   <a href="jobs/">Jobs</a> ·
+  <a href="agent-templates/">Agent Templates</a> ·
   <a href="examples/README.md">API Examples</a> ·
   <a href="reports/README.md">Reports</a> ·
   <a href="docs/">Documentation</a>
@@ -65,6 +66,10 @@ Investigate models, caching, context, routing, runtimes and optimisation techniq
 
 Use the existing library of 50 reviewed, reusable Agent Control workloads and 12 qualification suites. Existing manifests, the `ac-jobs` CLI, package identity and commands remain compatible. [Browse Jobs](jobs/) or [the generated catalogue](catalogue/index.json).
 
+### Agent templates
+
+Choose a reusable specialist role independently from the concrete Job it performs. The first five versioned templates cover research, code review, evidence verification, documentation and model evaluation. Their portable instructions, requirements, provenance, immutable digest, compatible Jobs and qualification limits are browsable through the same catalogue and CLI. [Browse templates](agent-templates/) or read the [template guide](docs/AGENT-TEMPLATES.md).
+
 ### API examples
 
 Inspect estate, context and qualification records, and see the current bounded Agent Control integration contract. [Browse API examples](examples/README.md).
@@ -120,6 +125,9 @@ node tools/cli.mjs inspect service-health-check
 node tools/cli.mjs suite AC-QUAL-CORE
 node tools/cli.mjs provenance inbox-triage
 node tools/cli.mjs compatibility service-health-check examples/estate.json
+node tools/cli.mjs template-list
+node tools/cli.mjs template-inspect researcher
+node tools/cli.mjs template-readiness researcher technical-research examples/estate.json examples/context.json
 ```
 
 The last command deliberately reports missing or stale prerequisites. The example estate grants no authority. A successful compatibility query has exit code 0 even when its result is BLOCKED; inspect the returned state.

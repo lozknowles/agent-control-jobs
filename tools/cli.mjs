@@ -13,6 +13,11 @@ import {
   verify,
   generated,
   safePath,
+  agentTemplates,
+  getAgentTemplate,
+  validateAgentTemplate,
+  templateReadiness,
+  templateSelection,
 } from "./library.mjs";
 import { scaffold } from "./scaffold.mjs";
 import { projectDiscovery } from "./discovery.mjs";
@@ -23,7 +28,7 @@ try {
   switch (cmd) {
     case "help":
       print(
-        "ac-jobs list | search TERM | inspect ID | validate [JOB-DIR] | catalogue [--check] | suite ID | compatibility ID ESTATE [CONTEXT] | provenance ID | verify ID RESULT | new DRAFT",
+        "ac-jobs list | search TERM | inspect ID | validate [JOB-DIR] | catalogue [--check] | suite ID | compatibility ID ESTATE [CONTEXT] | provenance ID | verify ID RESULT | new DRAFT | template-list | template-search TERM | template-inspect ID | template-readiness ID JOB ESTATE [CONTEXT] | template-qualifications ID | select-template ID JOB ESTATE [CONTEXT]",
       );
       break;
     case "new":
@@ -57,6 +62,25 @@ try {
     case "inspect":
       print(getJob(arg).manifest);
       break;
+    case "template-list":
+      print(agentTemplates().map((template) => ({id: template.manifest.id, version: template.manifest.version, description: template.manifest.description, compatible_jobs: template.manifest.compatible_jobs})));
+      break;
+    case "template-search":
+      if (!arg) throw Error("search_term_required");
+      print(agentTemplates().filter((template) => JSON.stringify(template.manifest).toLowerCase().includes(arg.toLowerCase())).map((template) => template.manifest));
+      break;
+    case "template-inspect": {
+      const template = getAgentTemplate(arg); validateAgentTemplate(template); print(template.manifest); break;
+    }
+    case "template-readiness": {
+      const [jobId, estate, context] = rest; print(templateReadiness(getAgentTemplate(arg), getJob(jobId), read(estate), context ? read(context) : {})); break;
+    }
+    case "select-template": {
+      const [jobId, estate, context] = rest; print(templateSelection(getAgentTemplate(arg), getJob(jobId), read(estate), context ? read(context) : {})); break;
+    }
+    case "template-qualifications": {
+      const records = read(path.join(ROOT, "qualifications/templates/index.json")); print(records.filter((record) => record.template_id === arg)); break;
+    }
     case "provenance":
       print(getJob(arg).manifest.provenance);
       break;

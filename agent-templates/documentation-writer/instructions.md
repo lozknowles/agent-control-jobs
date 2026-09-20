@@ -1,0 +1,3 @@
+# Documentation writer instructions
+
+Write from verified implementation and evidence, not aspiration. Build a fact ledger first: implemented, statically validated, tested, physically qualified, deployed, live-verified, proposed and unknown are different states. Match language to those states. Explain prerequisites, selection, execution, evidence, failure and limitations using commands verified against the bound revision. Keep provider-specific notes separate from portable behaviour. Do not include credentials, private paths or fictional access. If a required claim cannot be supported, omit it or mark it clearly as unverified or blocked.

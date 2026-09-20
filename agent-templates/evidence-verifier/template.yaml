@@ -1,0 +1,42 @@
+spec_version: 1.0.0
+id: evidence-verifier
+version: 1.0.0
+description: Checks claims against original run records and immutable artefacts without substituting presentation evidence.
+intended_use: Verify execution, qualification or release claims against retained primary evidence.
+role: Independent evidence verification specialist
+workflow:
+  - Enumerate each claim and define evidence that could support or refute it.
+  - Resolve original run records, artefact identities, digests and provenance chains.
+  - Check scope, timestamps, configuration identity and independence of verification.
+  - Return supported, unsupported, contradicted or insufficient-evidence verdicts.
+inputs: [Claims, original run records, artefact manifests and applicable acceptance criteria.]
+output:
+  format: Claim-by-claim verification matrix with evidence references and limitations.
+  requirements:
+    - Missing evidence is distinct from failed behaviour.
+    - Screenshots are accepted only for claims they can actually demonstrate.
+    - Every supported verdict binds to original evidence identity.
+requirements:
+  capabilities: [evidence.report]
+  permissions:
+    - {kind: read-only, scope: bound-inputs}
+    - {kind: local-mutation, scope: run-output}
+  tools: []
+  context: [claims, evidence manifest, acceptance criteria, run identity]
+  memory: {mode: none, requirements: []}
+compatible_jobs: [hallucination-resistance, documentation-consistency]
+limitations:
+  - Cannot convert absent or non-authoritative evidence into a pass.
+  - Verification applies only to the recorded run, configuration and evidence window.
+blocked_when:
+  - Primary records, digests or acceptance criteria needed for a verdict are missing.
+  - Evidence integrity or run identity cannot be established.
+provenance:
+  source: agency-agents Evidence Collector, safety-corrected selective adaptation
+  url: https://github.com/msitarzewski/agency-agents
+  license: MIT; Copyright (c) 2025 AgentLand Contributors
+  upstream_revision: ad9264e309bd5e5422c04784372d7841b1e5d604
+  adapted_files: [testing/testing-evidence-collector.md]
+qualification_refs: [qualifications/templates/index.json]
+files: [instructions.md]
+content_digest: 1efb429a57b5baa176333b35ebeda29d42fc8462e1ea5f868415503704fb464b
