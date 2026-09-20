@@ -1,0 +1,46 @@
+{
+  "schema": "agent-control.evidence-verifier-qwen38-qualification-status/v1",
+  "generated_at": "2026-09-20T14:29:06Z",
+  "model": {
+    "id": "Qwen3.8-27B-Q3_K_M.gguf",
+    "sha256": "7f3b845b563888ec3abc269474cf744bf703a7ce8766dbb7f696c63975facfd7"
+  },
+  "runtime": {
+    "name": "llama.cpp",
+    "build": "9371",
+    "commit": "22d9bc441",
+    "sha256": "3f1000482d759661cadb1dc9b59f6292f52408ee0d2906298fa001837517fb4e"
+  },
+  "failure_diagnosis": {
+    "case_id": "ev2-heldout-insufficient-owner",
+    "raw_transport_captured": true,
+    "first_invalid_layer": 5,
+    "classification": "MODEL_OUTPUT_TRUNCATED",
+    "reproducibility_at_768": "DETERMINISTIC",
+    "agent_control_decoder_defect": false,
+    "llama_cpp_defect": false
+  },
+  "output_budget": {
+    "tokens_768": "INSUFFICIENT",
+    "tokens_1024": "INTERMITTENTLY_SUFFICIENT_NOT_RELIABLE",
+    "tokens_1536": "PLAIN_THREE_CASE_COMPLETION_AND_FORMAT_GATE_PASSED",
+    "comparison_budget_tokens": 1536
+  },
+  "plain_three_case": {
+    "completed": 3,
+    "format_compliant": 3,
+    "accepted": 2,
+    "unsupported_claims": 0
+  },
+  "comparison": {
+    "runs": 27,
+    "plain": {"runs": 9, "completed": 9, "format_compliant": 9, "accepted": 6, "unsupported_claims": 0, "provider_failures": 0},
+    "evidence_verifier_1_0_0": {"runs": 9, "completed": 6, "format_compliant": 6, "accepted": 6, "unsupported_claims": 0, "provider_failures": 3},
+    "evidence_verifier_1_2_0": {"runs": 9, "completed": 9, "format_compliant": 9, "accepted": 9, "unsupported_claims": 0, "provider_failures": 0}
+  },
+  "evidence_verifier_1_2_0_status": "READY_FOR_FRESH_HELD_OUT_QUALIFICATION",
+  "fresh_held_out": "SEALED",
+  "route": "EXPERIMENTAL",
+  "protected_services": "PASS",
+  "cleanup": "PASS"
+}
