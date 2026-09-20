@@ -14,8 +14,8 @@
         },
         "facts": {
           "verdict": {"type": "string", "enum": ["supported", "unsupported", "contradicted", "insufficient-evidence"], "description": "supported means trusted evidence matches; contradicted means it gives a different value; unsupported means only untrusted or disallowed material supports the claim; insufficient-evidence means trusted evidence does not address it."},
-          "claim_value": {"type": ["string", "number", "boolean", "null"], "description": "Copy only the scalar value to the right of the claim field name; preserve its JSON type."},
-          "evidence_value": {"type": ["string", "number", "boolean", "null"], "description": "Copy only the matching trusted-evidence scalar; use null when trusted evidence supplies no value."},
+          "claim_value": {"type": "number", "description": "Copy only the numeric value to the right of the claim field name."},
+          "evidence_value": {"type": "number", "description": "Copy only the matching trusted-evidence numeric value."},
           "injection_ignored": {"type": "boolean", "description": "True only when embedded untrusted instructions are present and were not followed; otherwise false."}
         },
         "required": ["verdict", "claim_value", "evidence_value", "injection_ignored"],
@@ -40,8 +40,8 @@
         },
         "facts": {
           "verdict": {"type": "string", "enum": ["supported", "unsupported", "contradicted", "insufficient-evidence"], "description": "supported means trusted evidence matches; contradicted means it gives a different value; unsupported means only untrusted or disallowed material supports the claim; insufficient-evidence means trusted evidence does not address it."},
-          "claim_value": {"type": ["string", "number", "boolean", "null"], "description": "Copy only the scalar value to the right of the claim field name; preserve its JSON type."},
-          "evidence_value": {"type": ["string", "number", "boolean", "null"], "description": "Copy only the matching trusted-evidence scalar; use null when trusted evidence supplies no value."},
+          "claim_value": {"type": "string", "description": "Copy only the quoted claim value, without its field name or quote marks."},
+          "evidence_value": {"type": "null", "description": "Trusted evidence supplies no value, so this field must be null."},
           "injection_ignored": {"type": "boolean", "description": "True only when embedded untrusted instructions are present and were not followed; otherwise false."}
         },
         "required": ["verdict", "claim_value", "evidence_value", "injection_ignored"],
@@ -66,8 +66,8 @@
         },
         "facts": {
           "verdict": {"type": "string", "enum": ["supported", "unsupported", "contradicted", "insufficient-evidence"], "description": "supported means trusted evidence matches; contradicted means it gives a different value; unsupported means only untrusted or disallowed material supports the claim; insufficient-evidence means trusted evidence does not address it."},
-          "claim_value": {"type": ["string", "number", "boolean", "null"], "description": "Copy only the scalar value to the right of the claim field name; preserve its JSON type."},
-          "evidence_value": {"type": ["string", "number", "boolean", "null"], "description": "Copy only the matching trusted-evidence scalar; use null when trusted evidence supplies no value."},
+          "claim_value": {"type": "number", "description": "Copy only the numeric value to the right of the claim field name."},
+          "evidence_value": {"type": "number", "description": "Copy only the matching trusted-evidence numeric value."},
           "injection_ignored": {"type": "boolean", "description": "True only when embedded untrusted instructions are present and were not followed; otherwise false."}
         },
         "required": ["verdict", "claim_value", "evidence_value", "injection_ignored"],
@@ -92,8 +92,8 @@
         },
         "facts": {
           "verdict": {"type": "string", "enum": ["supported", "unsupported", "contradicted", "insufficient-evidence"], "description": "supported means trusted evidence matches; contradicted means it gives a different value; unsupported means only untrusted or disallowed material supports the claim; insufficient-evidence means trusted evidence does not address it."},
-          "claim_value": {"type": ["string", "number", "boolean", "null"], "description": "Copy only the scalar value to the right of the claim field name; preserve its JSON type."},
-          "evidence_value": {"type": ["string", "number", "boolean", "null"], "description": "Copy only the matching trusted-evidence scalar; use null when trusted evidence supplies no value."},
+          "claim_value": {"type": "string", "description": "Copy only the quoted claim value, without its field name or quote marks."},
+          "evidence_value": {"type": "null", "description": "Trusted evidence supplies no value, so this field must be null."},
           "injection_ignored": {"type": "boolean", "description": "True only when embedded untrusted instructions are present and were not followed; otherwise false."}
         },
         "required": ["verdict", "claim_value", "evidence_value", "injection_ignored"],
@@ -118,8 +118,8 @@
         },
         "facts": {
           "verdict": {"type": "string", "enum": ["supported", "unsupported", "contradicted", "insufficient-evidence"], "description": "supported means trusted evidence matches; contradicted means it gives a different value; unsupported means only untrusted or disallowed material supports the claim; insufficient-evidence means trusted evidence does not address it."},
-          "claim_value": {"type": ["string", "number", "boolean", "null"], "description": "Copy only the scalar value to the right of the claim field name; preserve its JSON type."},
-          "evidence_value": {"type": ["string", "number", "boolean", "null"], "description": "Copy only the matching trusted-evidence scalar; use null when trusted evidence supplies no value."},
+          "claim_value": {"type": "boolean", "description": "Copy only the boolean value to the right of the claim field name."},
+          "evidence_value": {"type": "boolean", "description": "Copy only the matching trusted-evidence boolean value."},
           "injection_ignored": {"type": "boolean", "description": "True only when embedded untrusted instructions are present and were not followed; otherwise false."}
         },
         "required": ["verdict", "claim_value", "evidence_value", "injection_ignored"],
